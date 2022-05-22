@@ -139,44 +139,62 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="KriteriumUZJ_B_SNazov.cpp" />
+    <ClCompile Include="KriteriumUZJNazov.cpp" />
+    <ClCompile Include="KriteriumUZJTyp.cpp" />
+    <ClCompile Include="KriteriumUZJUJVekovaSkupinaPocet.cpp" />
     <ClCompile Include="Obec.cpp" />
     <ClCompile Include="Rozdelovnik.cpp" />
     <ClCompile Include="SemestralnaPracaAus1_FuntikovaTimea.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="Utils.cpp" />
-    <ClCompile Include="UzemnaJednotka.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Zoznam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="CompositeFilter.h" />
+    <ClInclude Include="Filter.h" />
+    <ClInclude Include="FilterUJNazov.h" />
+    <ClInclude Include="FilterUJPrislusnost.h" />
+    <ClInclude Include="FilterUJTyp.h" />
+    <ClInclude Include="FilterWithCriterion.h" />
+    <ClInclude Include="Filter_AND.h" />
+    <ClInclude Include="Filter_fi.h" />
+    <ClInclude Include="Filter_Fl.h" />
+    <ClInclude Include="Filter_OR.h" />
     <ClInclude Include="IObec.h" />
     <ClInclude Include="Kriterium.h" />
-    <ClInclude Include="KriteriumUZJ_B_S.h" />
-    <ClInclude Include="KriteriumUZJ_B_SNadradenaUzemnaJednotka.h" />
-    <ClInclude Include="KriteriumUZJ_B_SNazov.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJPrislusnost.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVekovaSkupinaPocet.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVekovaSkupinaPodiel.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVekPocet.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVekPodiel.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVzdelaniePocet.h" />
-    <ClInclude Include="KriteriumUZJ_B_SUJVzdelaniePodiel.h" />
+    <ClInclude Include="KriteriumUZJ.h" />
+    <ClInclude Include="KriteriumUZJNadradenaUzemnaJednotka.h" />
+    <ClInclude Include="KriteriumUZJNazov.h" />
+    <ClInclude Include="KriteriumUZJTyp.h" />
+    <ClInclude Include="KriteriumUZJUJPrislusnost.h" />
+    <ClInclude Include="KriteriumUZJUJVekovaSkupinaPocet.h" />
+    <ClInclude Include="KriteriumUZJUJVekovaSkupinaPodiel.h" />
+    <ClInclude Include="KriteriumUZJUJVekPocet.h" />
+    <ClInclude Include="KriteriumUZJUJVekPodiel.h" />
+    <ClInclude Include="KriteriumUZJUJVzdelaniePocet.h" />
+    <ClInclude Include="KriteriumUZJUJVzdelaniePodiel.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Obec.h" />
     <ClInclude Include="Rozdelovnik.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="Structure_Iterator.h" />
     <ClInclude Include="Types.h" />
-    <ClInclude Include="UzemnaJednotka.h" />
-    <ClInclude Include="UZJ_B_S.h" />
+    <ClInclude Include="UZJ.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="VyssiCelok.h" />
     <ClInclude Include="Zoznam.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="data\kraje.csv" />
+    <None Include="data\obce.csv" />
+    <None Include="data\okresy.csv" />
+    <None Include="data\vek.csv" />
+    <None Include="data\vzdelanie.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

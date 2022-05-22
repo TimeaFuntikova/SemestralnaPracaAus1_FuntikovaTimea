@@ -6,9 +6,9 @@
 
 namespace structures {
 	template <typename ObjectType, typename ResultType>
-	class Kriterium
+	class Kriterium   
 	{
 	public:
-		virtual ResultType evaluate(const ObjectType& object) = 0;
+		virtual ResultType evaluate(const ObjectType& object)  = 0;
 	};
 }

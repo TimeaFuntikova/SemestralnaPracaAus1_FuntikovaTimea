@@ -22,6 +22,9 @@
     <Filter Include="Header Files\NacitavanieZoSuboru">
       <UniqueIdentifier>{d2745b69-35a9-4861-b47c-2943033e6ac1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\data">
+      <UniqueIdentifier>{043ccf73-6164-4699-9d85-3f17c2926acd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SemestralnaPracaAus1_FuntikovaTimea.cpp">
@@ -36,10 +39,7 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Header Files\common</Filter>
     </ClCompile>
-    <ClCompile Include="KriteriumUZJ_B_SNazov.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UzemnaJednotka.cpp">
+    <ClCompile Include="KriteriumUZJNazov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Obec.cpp">
@@ -50,6 +50,12 @@
     </ClCompile>
     <ClCompile Include="Rozdelovnik.cpp">
       <Filter>Header Files\NacitavanieZoSuboru</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJTyp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVekovaSkupinaPocet.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +68,7 @@
     <ClInclude Include="Kriterium.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_S.h">
+    <ClInclude Include="KriteriumUZJ.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
@@ -80,37 +86,31 @@
     <ClInclude Include="Types.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
-    <ClInclude Include="UZJ_B_S.h">
+    <ClInclude Include="KriteriumUZJNazov.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SNazov.h">
+    <ClInclude Include="KriteriumUZJUJVekPocet.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVekPocet.h">
+    <ClInclude Include="KriteriumUZJUJPrislusnost.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJPrislusnost.h">
+    <ClInclude Include="KriteriumUZJUJVzdelaniePodiel.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVzdelaniePodiel.h">
+    <ClInclude Include="KriteriumUZJUJVzdelaniePocet.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVzdelaniePocet.h">
+    <ClInclude Include="KriteriumUZJUJVekovaSkupinaPocet.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVekovaSkupinaPocet.h">
+    <ClInclude Include="KriteriumUZJUJVekovaSkupinaPodiel.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVekovaSkupinaPodiel.h">
+    <ClInclude Include="KriteriumUZJNadradenaUzemnaJednotka.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SNadradenaUzemnaJednotka.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="KriteriumUZJ_B_SUJVekPodiel.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="UzemnaJednotka.h">
+    <ClInclude Include="KriteriumUZJUJVekPodiel.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
     <ClInclude Include="IObec.h">
@@ -125,8 +125,65 @@
     <ClInclude Include="Rozdelovnik.h">
       <Filter>Header Files\NacitavanieZoSuboru</Filter>
     </ClInclude>
+    <ClInclude Include="UZJ.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="KriteriumUZJTyp.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="VyssiCelok.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterWithCriterion.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterUJNazov.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterUJTyp.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterUJPrislusnost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_fi.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_Fl.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeFilter.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_AND.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_OR.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="data\kraje.csv">
+      <Filter>Header Files\data</Filter>
+    </None>
+    <None Include="data\obce.csv">
+      <Filter>Header Files\data</Filter>
+    </None>
+    <None Include="data\okresy.csv">
+      <Filter>Header Files\data</Filter>
+    </None>
+    <None Include="data\vek.csv">
+      <Filter>Header Files\data</Filter>
+    </None>
+    <None Include="data\vzdelanie.csv">
+      <Filter>Header Files\data</Filter>
+    </None>
   </ItemGroup>
 </Project>

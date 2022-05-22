@@ -11,19 +11,25 @@
 //podla impl. prirucky zodpoveda triede student
 namespace structures {
 
-	class UZJ_B_S
+	class UZJ
 	{
 	public:
-		UZJ_B_S(std::string nazov);
-	protected:
+		UZJ(std::string nazov);
+	private:
 		std::string nazov_;
-		Vector* vek_;
+		int vek_;
+
+
 		static const int vzdelanie_; //flag od 1 do 8 podla stupna vzdelania jaksik
 		//typUZJ typUZJ_;
 		//??? prislusnost_;
 		static const int vekovaSkupina;
 		static const int pohlavie;
 		//bool nadradena_;
+	public:
+		const std::string& getName() const { return nazov_; };
+		const int& getVek() const { return vek_; };
+
+
 	};
 }
-
