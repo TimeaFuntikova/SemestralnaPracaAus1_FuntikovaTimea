@@ -139,21 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Kraj.cpp" />
     <ClCompile Include="KriteriumUZJNazov.cpp" />
     <ClCompile Include="KriteriumUZJTyp.cpp" />
     <ClCompile Include="KriteriumUZJUJVekovaSkupinaPocet.cpp" />
     <ClCompile Include="Obec.cpp" />
+    <ClCompile Include="Reader.cpp" />
     <ClCompile Include="Rozdelovnik.cpp" />
     <ClCompile Include="SemestralnaPracaAus1_FuntikovaTimea.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Vek.cpp" />
+    <ClCompile Include="Vzdelanie.cpp" />
     <ClCompile Include="Zoznam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="CompositeFilter.h" />
+    <ClInclude Include="Enums.h" />
     <ClInclude Include="Filter.h" />
     <ClInclude Include="FilterUJNazov.h" />
     <ClInclude Include="FilterUJPrislusnost.h" />
@@ -164,6 +169,7 @@
     <ClInclude Include="Filter_Fl.h" />
     <ClInclude Include="Filter_OR.h" />
     <ClInclude Include="IObec.h" />
+    <ClInclude Include="Kraj.h" />
     <ClInclude Include="Kriterium.h" />
     <ClInclude Include="KriteriumUZJ.h" />
     <ClInclude Include="KriteriumUZJNadradenaUzemnaJednotka.h" />
@@ -176,15 +182,23 @@
     <ClInclude Include="KriteriumUZJUJVekPodiel.h" />
     <ClInclude Include="KriteriumUZJUJVzdelaniePocet.h" />
     <ClInclude Include="KriteriumUZJUJVzdelaniePodiel.h" />
+    <ClInclude Include="linked_list.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Obec.h" />
+    <ClInclude Include="Reader.h" />
     <ClInclude Include="Rozdelovnik.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="Structure_Iterator.h" />
+    <ClInclude Include="table\data_item.h" />
+    <ClInclude Include="table\sequence_table.h" />
+    <ClInclude Include="table\sorted_sequence_table.h" />
+    <ClInclude Include="table\table.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="UZJ.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vek.h" />
     <ClInclude Include="VyssiCelok.h" />
+    <ClInclude Include="Vzdelanie.h" />
     <ClInclude Include="Zoznam.h" />
   </ItemGroup>
   <ItemGroup>

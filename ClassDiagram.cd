@@ -7,13 +7,6 @@
       <FileName>Kriterium.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::UZJ" Collapsed="true">
-    <Position X="1.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAEAIAAACAgAAAAAAAAAAAAAAAUAAAAQAA=</HashCode>
-      <FileName>UZJ.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="structures::KriteriumUZJ&lt;ResultType&gt;" Collapsed="true">
     <Position X="0.75" Y="2.75" Width="3.5" />
     <TypeIdentifier>

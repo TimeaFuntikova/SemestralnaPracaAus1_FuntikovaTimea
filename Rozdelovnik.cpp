@@ -1,7 +1,5 @@
 #include <fstream>
 #include "Rozdelovnik.h"
-//#include "Dedina.h"
-//#include "Mesto.h"
 
 
 #ifdef _DEBUG
@@ -39,6 +37,7 @@ namespace nacitavanieZoSuboru {
 		std::ifstream vstup;
 		vstup.open(aVstupnySubor);
 		if (!vstup) return false;
+
 		std::string nazov;
 		unsigned pocet;
 		while (vstup >> nazov)
@@ -87,15 +86,6 @@ namespace nacitavanieZoSuboru {
 	{
 
 		throw std::runtime_error("Not implemented yet.");
-		//Obec* obec;
-
-		/*
-		if (pocet <= 5000)
-			obec = DBG_NEW Dedina(pocet, nazov);
-		else
-			obec = DBG_NEW Mesto(pocet, nazov);
-		return obec;
-		*/
 
 	}
 

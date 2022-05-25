@@ -1,18 +1,18 @@
 // SemestralnaPracaAus1_FuntikovaTimea.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
-#include <iostream>
-#include <vector>
+//#include "Structure.h"
+//#include "Kriterium.h"
+//#include "Filter.h"
+//#include "FilterUJNazov.h"
+#include "Reader.h"
 
-#include "Structure.h"
-#include "Kriterium.h"
-#include "Filter.h"
-#include "FilterUJNazov.h"
 
-int main()
+void main()
 {
-	using namespace structures;
+	Reader* reader = new Reader();
+	delete reader;
 
 		//FilterUJNazov filterMenoDana("Dana");
-	
+		
 }
+
