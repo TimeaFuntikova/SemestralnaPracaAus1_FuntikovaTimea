@@ -6,13 +6,11 @@
 //#include "FilterUJNazov.h"
 #include "Reader.h"
 
-
-void main()
+int main()
 {
-	Reader* reader = new Reader();
-	delete reader;
-
-		//FilterUJNazov filterMenoDana("Dana");
-		
-}
+		structures::Reader* reader = new structures::Reader();
+		delete reader;
+	    std::cout << "Ideme." << std::endl;
+		return 0;
+	}
 

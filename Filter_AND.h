@@ -1,7 +1,5 @@
 #pragma once
-
 #include "CompositeFilter.h"
-
 
 /// <summary>
 /// AND FILTER
@@ -11,7 +9,21 @@ namespace structures {
 	class Filter_AND : public CompositeFilter<ObjectType>
 	{
 	public:
-		virutal bool pass(const ObjectType& object) = 0;
+		bool pass(ObjectType object) override;
 	};
+
+
+	template<typename ObjectType>
+	inline bool Filter_AND<ObjectType>::pass(ObjectType object)
+	{
+
+		for (Filter<ObjectType>* filter : *CompositeFilter::filtre_)
+		{
+			if (!filter->pass(object)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
 

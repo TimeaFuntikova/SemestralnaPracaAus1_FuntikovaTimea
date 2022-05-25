@@ -2,5 +2,5 @@
 
 int structures::KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim::evaluate(UZJ* object)
 {
-    return object->getVek()->getPocetLudiSDanymVekom(pohl_,vek_);
+    return object->getVek()->getPocetLudiSDanymVekom(pohl_, vek_);
 }

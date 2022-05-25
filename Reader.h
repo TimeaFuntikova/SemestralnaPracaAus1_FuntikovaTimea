@@ -1,28 +1,29 @@
 ﻿#pragma once
-#include <iostream>
-#include "table/sorted_sequence_table.h"
-#include "Array.h"
-#include "linked_list.h"
-#include "Kraj.h"
 
+#include <iostream>
 #include <fstream>
-#include <iostream>
+#include <vector>
 #include <sstream>
-#include <string>
 
-//inspiration from: https://www.youtube.com/watch?v=wRj9PZ2wyZI&ab_channel=TejasPatil
+#include "Kraj.h"
+//#include "ArrayList.h" //po urcitom case zacne detekovat memleaky, akoby nebolschopny spracovat vela dat
+#include "linked_list.h"
 
 
-	/// <summary>
-	/// slúži na načítavanie zo súborov
-	/// </summary>
+namespace structures {
+
+	//inspiration from: https://www.youtube.com/watch?v=wRj9PZ2wyZI&ab_channel=TejasPatil
+
+
+		/// <summary>
+		/// slúži na načítavanie zo súborov
+		/// </summary>
 	class Reader
 	{
-	private:
-
 		//TU SORTEDSEQUENCE TABLE !!!!
 		//structures::SortedSequenceTable<int, std::string>* sqceTable_;  //v tvare por.cislo a nazov kraja
-	
+
+		/*
 	public:
 		Reader();
 		structures::Array<Kraj*>* zoznamKrajov_;
@@ -46,13 +47,27 @@
 		//Obec* DajObec(unsigned i) const {return }
 
 
-	
+
 		//bool nacitajKraje(char* nazov, structures::SortedSequenceTable<int, std::string>*); //sequenceTable
-			/*
+
 		bool nacitajObce(); //sequenceTable
 		bool nacitajOkresy(); //sequenceTable
 		bool nacitajVzdelanie();//sequenceTable
 		bool nacitajVek();//sequenceTable
-		*/
+
 	};
+	*/
+
+	public:
+
+		Reader()
+		{
+			//nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
+			nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
+		}
+		~Reader() = default;
+		LinkedList<LinkedList<std::string>*>* nacitajObce(std::string fileName);
+		LinkedList<LinkedList<std::string>*>* nacitajKraje(std::string fileName);
+	};
+}
 
