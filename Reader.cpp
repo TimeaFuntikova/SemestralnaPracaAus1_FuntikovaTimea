@@ -70,9 +70,11 @@ void Reader::nacitajTabulku()
 	}
 	*/
 
+
+	//PREROBIC -- LL + memleaky dokopat
 	structures::LinkedList<structures::LinkedList<std::string>*>* Reader::nacitajKraje(std::string nazovSuboru)
 	{
-		std::vector<std::vector<std::string>> content;
+		std::vector<std::vector<std::string>> obsahCSVFile;
 		std::vector<std::string> row;
 		std::string line, word;
 
@@ -92,23 +94,23 @@ void Reader::nacitajTabulku()
 
 				while (getline(str, word, ','))
 					row.push_back(word);
-				content.push_back(row);
+				obsahCSVFile.push_back(row);
 			}
 		}
 		else {
 			std::cout << "Could not open the file\n";
 		}
 
-		structures::LinkedList<std::string>* texty = new structures::LinkedList<std::string>;
+		structures::LinkedList<std::string>* liness = new structures::LinkedList<std::string>;
 		structures::LinkedList<structures::LinkedList<std::string>*>* result = new structures::LinkedList<structures::LinkedList<std::string>*>;
 
 		// nacitam vsetky texty z csv file
-		for (int i = 0; i < content.size(); i++)
+		for (int i = 0; i < obsahCSVFile.size(); i++)
 		{
 			std::string riadok = "";
-			for (int j = 0; j < content[i].size(); j++)
+			for (int j = 0; j < obsahCSVFile[i].size(); j++)
 			{
-				riadok += content[i][j];
+				riadok += obsahCSVFile[i][j];
 			}
 
 			if (riadok == ";;;;;") {
@@ -118,11 +120,11 @@ void Reader::nacitajTabulku()
 
 			riadok += ";"; // ABY SOM MOHOL NESKOR ZISTIT CI UZ JE KONIEC
 
-			texty->add(riadok);
+			liness->add(riadok);
 		}
 
 
-		for (std::string item : *texty) {
+		for (std::string item : *liness) {
 			std::string kodUJ = "";
 			std::string nazovUJ = "";
 			int i = 0;
@@ -174,61 +176,14 @@ void Reader::nacitajTabulku()
 
 		}
 
-		delete texty;
+		delete liness;
 
 		return result;
 	}
-
+	
 	/*
 	bool nacitajObce(); //sequenceTable
 	bool nacitajOkresy(); //sequenceTable
 	bool nacitajVzdelanie();//sequenceTable
 	bool nacitajVek();//sequenceTable
-	
-	namespace nacitavanieZoSuboru {
-		void Rozdelovnik::Start()
-		{
-			if (Nacitaj())
-			{
-				aZoznam.Usporiadaj();
-				RozdelObce();
-			}
-		}
-
-		bool Rozdelovnik::Nacitaj()
-		{
-			std::ifstream vstup;
-			vstup.open(aVstupnySubor);
-			if (!vstup) return false;
-			std::string nazov;
-			unsigned pocet;
-			while (vstup >> nazov)
-			{
-				vstup >> pocet;
-				aZoznam.PridajObec(*AlokujObec(pocet, nazov.c_str()));
-			}
-			vstup.close();
-			return true;
-		}
-
-		void Rozdelovnik::Uloz(const char* vystsubor, Zoznam& zoznam)
-		{
-			char* subor = VytvorVystup(vystsubor);
-			std::ofstream ofs;
-			ofs.open(subor);
-			if (!ofs) return;
-			for (unsigned i = 0; i < zoznam.Pocet(); i++)
-			{
-				Obec* obec = zoznam.DajObec(i);
-				Uloz(ofs, *obec);
-			}
-			ofs.close();
-			delete[] subor;
-		}
-
-		void Rozdelovnik::Uloz(std::ofstream& vystup, const Obec& obec)
-		{
-			vystup << obec.ToString() << std::endl;
-		}
-	}
 	*/

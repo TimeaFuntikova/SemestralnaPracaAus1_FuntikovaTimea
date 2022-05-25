@@ -12,33 +12,10 @@ private:
 	vzdelanie_enum vzdelanieEnum_;
 	structures::Array<int>* vzdelanieSK_;
 
-
-/*	structures::ArrayList<vzdelanie_enum>* bezUkVzd_;
-	structures::ArrayList<vzdelanie_enum>* zakl_;
-	structures::ArrayList<vzdelanie_enum>* ucn_;
-	structures::ArrayList<vzdelanie_enum>* str_;
-	structures::ArrayList<vzdelanie_enum>* vyss_;
-	structures::ArrayList<vzdelanie_enum>* vysok_;
-	structures::ArrayList<vzdelanie_enum>* bezVzd_;
-	structures::ArrayList<vzdelanie_enum>* unkn_;
-	*/
-
 public:
 	Vzdelanie() {
 
 		vzdelanieSK_ = new structures::Array<int>(8);
-		
-
-		/*
-		bezUkVzd_ = new structures::ArrayList<vzdelanie_enum>();
-		zakl_ = new structures::ArrayList<vzdelanie_enum>();
-		ucn_ = new structures::ArrayList<vzdelanie_enum>();
-		str_ = new structures::ArrayList<vzdelanie_enum>();
-		vyss_ = new structures::ArrayList<vzdelanie_enum>();
-		vysok_ = new structures::ArrayList<vzdelanie_enum>();
-		bezVzd_ = new structures::ArrayList<vzdelanie_enum>();
-		unkn_ = new structures::ArrayList<vzdelanie_enum>();
-		*/
 	}
 
 	~Vzdelanie() 
@@ -55,25 +32,7 @@ public:
 				vzdelanieSK_->at(i) = 0;
 			}
 		}
-		/*
-		delete bezUkVzd_;
-		delete zakl_;
-		delete ucn_;
-		delete str_;
-		delete vyss_;
-		delete vysok_;
-		delete bezVzd_;
-		delete unkn_;
-
-		bezUkVzd_ = nullptr;
-		zakl_ = nullptr;
-		ucn_ = nullptr;
-		str_ = nullptr;
-		vyss_ = nullptr;
-		vysok_ = nullptr;
-		bezVzd_ = nullptr;
-		unkn_ = nullptr;
-		*/
+	
 
 	/*
 	const int& transformujVzdelanieInt() const
@@ -119,54 +78,7 @@ public:
 		}
 	}
 
-	/*
-	int getVzdelaniePocet(vzdelanie_enum(vzdel)) {
-		
-		 //transformujVzdelanieInt();
-		if (vzdel == vzdelanie_enum(0))
-		{
-			return bezUkVzd_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(1))
-		{
-			return zakl_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(2))
-		{
-			return ucn_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(3))
-		{
-			return str_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(4))
-		{
-			return vyss_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(5))
-		{
-			return vysok_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(6))
-		{
-			return bezVzd_->size();
-		}
-
-		if (vzdel == vzdelanie_enum(7))
-		{
-			return unkn_->size();
-		}
-
-		else {
-			throw std::logic_error("getVzdelaniePocet(vzdelanie_enum(vzdel)) : number is not 0-7. sth went wrong");
-		}
-	}*/
+	
 
 
 	int celkovyPocetLudiSoVzdelanim() {
@@ -187,22 +99,5 @@ public:
 		}
 		return pom;
 	}
-
-	/*
-	int celkovyPocetLudiSoVzdelanimALL() {
-		int suma = (celkovyPocetLudiSoVzdelanim() + bezVzd_->size() + unkn_->size());
-		return suma;
-	}
-
-	int celkovyPocetLudiSoVzdelanim() {
-		int suma = (bezUkVzd_->size() +
-			zakl_->size() +
-			ucn_->size() +
-			str_->size() +
-			vyss_->size() +
-			vysok_->size());
-		return suma;
-	}
-	*/
 };
 
