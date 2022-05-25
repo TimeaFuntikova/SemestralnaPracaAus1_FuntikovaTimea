@@ -1,7 +1,6 @@
 #include "KriteriumUZJTyp.h"
 
-
-namespace strucutures {
-
-
-}
+    typUZJ_enum structures::KriteriumUZJTyp::evaluate(UZJ* obj)
+    {
+        return obj->getTyp();
+    }

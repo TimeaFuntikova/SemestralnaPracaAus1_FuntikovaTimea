@@ -14,7 +14,6 @@ private:
 
 public:
 	Vzdelanie() {
-
 		vzdelanieSK_ = new structures::Array<int>(8);
 	}
 

@@ -8,7 +8,9 @@
 namespace structures {
 	class KriteriumUZJUJPocetObyvatelovSoVzdelanim : public KriteriumUZJ<int>
 	{
-		KriteriumUZJUJPocetObyvatelovSoVzdelanim(static const int vzdelanie);
-		int evaluate(const UZJ& object) override;
+	private:
+		vzdelanie_enum vzdel_;
+		KriteriumUZJUJPocetObyvatelovSoVzdelanim(vzdelanie_enum vzdelanie);
+		int evaluate(UZJ* object) override;
 	};
 }

@@ -7,9 +7,13 @@
 
 namespace structures {
 
-	class KriteriumUZJUJVekovaSkupinaPodiel : public KriteriumUZJ<double>
+	class KriteriumUZJUJVekPodiel : public KriteriumUZJ<double>
 	{
-		KriteriumUZJUJVekovaSkupinaPodiel(Vector vek, static const int pohlavie);
-		double evaluate(const UZJ& object) override;
+	private:
+		pohlavie_enum pohl_;
+		int vek_;
+	public:
+		KriteriumUZJUJVekPodiel(int vek, pohlavie_enum pohlavie);
+		double evaluate(UZJ* object) override;
 	};
 }

@@ -15,15 +15,28 @@ namespace structures {
 	public:
 		FilterWithCriterion(Kriterium<ObjectType, ValueType>* kriterium);
 		~FilterWithCriterion();
-		bool pass(const ObjectType& object);
+		bool pass(const ObjectType; object);
+
 	protected:
-		bool passFilter(ValueType value);
+		virtual bool passFilter(ValueType) = 0;
 	private:
 		Kriterium<ObjectType, ValueType>* kriterium_;
 	};
 
 	template<typename ObjectType, typename ValueType>
-	inline bool FilterWithCriterion<ObjectType, ValueType>::pass(const ObjectType& object)
+	inline FilterWithCriterion<ObjectType, ValueType>::FilterWithCriterion(Kriterium<ObjectType, ValueType>* kriterium)
+	{
+		kriterium_ = kriterium;
+	}
+
+	template<typename ObjectType, typename ValueType>
+	inline FilterWithCriterion<ObjectType, ValueType>::~FilterWithCriterion()
+	{
+		delete kriterium_;
+	}
+
+	template<typename ObjectType, typename ValueType>
+	inline bool FilterWithCriterion<ObjectType, ValueType>::pass(const ObjectType object)
 	{
 		return passFilter(kriterium_->evaluate(object));
 	}

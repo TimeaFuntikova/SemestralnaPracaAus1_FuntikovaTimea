@@ -10,7 +10,9 @@ namespace structures {
 	class Filter
 	{
 	public:
-		virtual bool pass(const ObjectType& object) = 0;
+		virtual bool pass(ObjectType object) = 0;
+		~Filter() = default;
+
 	};
 }
 

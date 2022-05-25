@@ -6,10 +6,10 @@
 /// </summary>
 
 namespace structures {
-
+	vzdelanie_enum vzdel_;
 	class KriteriumUZJUJVzdelaniePodiel : public KriteriumUZJ<double>
 	{
-		KriteriumUZJUJVzdelaniePodiel(static const int vzdelanie);
-		double evaluate(const UZJ& object) override;
+		KriteriumUZJUJVzdelaniePodiel(vzdelanie_enum vzdelanie);
+		double evaluate(UZJ* object) override;
 	};
 }

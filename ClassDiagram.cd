@@ -31,28 +31,21 @@
   <Class Name="structures::KriteriumUZJPatriDoVyssiehoCelku" Collapsed="true">
     <Position X="5.5" Y="2.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>KriteriumUZJUJPrislusnost.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="structures::KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim" Collapsed="true">
     <Position X="5.5" Y="3.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAgAAAAAAAAAIAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVekPocet.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="structures::KriteriumUZJUJVekovaSkupinaPodiel" Collapsed="true">
-    <Position X="5.5" Y="4.75" Width="3.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KriteriumUZJUJVekovaSkupinaPocet.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="structures::KriteriumUZJUJPocetObyvatelovSoVzdelanim" Collapsed="true">
     <Position X="5.5" Y="5.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVzdelaniePocet.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -70,12 +63,12 @@
       <FileName>KriteriumUZJNadradenaUzemnaJednotka.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="typUZJ" Collapsed="true">
-    <Position X="7.75" Y="1.75" Width="1.5" />
+  <Class Name="structures::KriteriumUZJUJVekovaSkupinaPocet" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAABAAAAAAAQAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>KriteriumUZJTyp.h</FileName>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KriteriumUZJUJVekovaSkupinaPocet.h</FileName>
     </TypeIdentifier>
-  </Enum>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

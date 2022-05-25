@@ -9,7 +9,9 @@ namespace structures {
 
 	class KriteriumUZJUJVekovaSkupinaPodiel : public KriteriumUZJ<double>
 	{
-		KriteriumUZJUJVekovaSkupinaPodiel(static const int vekovaSkupina);
-		double evaluate(const UZJ& object) override;
+	private:
+		EVS_enum evs_;
+		KriteriumUZJUJVekovaSkupinaPodiel(EVS_enum evs);
+		double evaluate(UZJ* object) override;
 	};
 }

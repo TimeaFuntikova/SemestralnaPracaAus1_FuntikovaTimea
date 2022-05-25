@@ -8,6 +8,6 @@
 namespace structures {
 	class KriteriumUZJNazov : public KriteriumUZJ<std::string>
 	{
-		std::string evaluate(const UZJ& object) override;
+		std::string evaluate(UZJ* object) override;
 	};
 }

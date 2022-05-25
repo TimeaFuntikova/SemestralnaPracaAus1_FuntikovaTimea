@@ -74,7 +74,7 @@ void Reader::nacitajTabulku()
 	//PREROBIC -- LL + memleaky dokopat
 	structures::LinkedList<structures::LinkedList<std::string>*>* Reader::nacitajKraje(std::string nazovSuboru)
 	{
-		std::vector<std::vector<std::string>> obsahCSVFile;
+		std::vector<std::vector<std::string>> content;
 		std::vector<std::string> row;
 		std::string line, word;
 
@@ -94,7 +94,7 @@ void Reader::nacitajTabulku()
 
 				while (getline(str, word, ','))
 					row.push_back(word);
-				obsahCSVFile.push_back(row);
+				content.push_back(row);
 			}
 		}
 		else {
@@ -105,12 +105,12 @@ void Reader::nacitajTabulku()
 		structures::LinkedList<structures::LinkedList<std::string>*>* result = new structures::LinkedList<structures::LinkedList<std::string>*>;
 
 		// nacitam vsetky texty z csv file
-		for (int i = 0; i < obsahCSVFile.size(); i++)
+		for (int i = 0; i < content.size(); i++)
 		{
 			std::string riadok = "";
-			for (int j = 0; j < obsahCSVFile[i].size(); j++)
+			for (int j = 0; j < content[i].size(); j++)
 			{
-				riadok += obsahCSVFile[i][j];
+				riadok += content[i][j];
 			}
 
 			if (riadok == ";;;;;") {

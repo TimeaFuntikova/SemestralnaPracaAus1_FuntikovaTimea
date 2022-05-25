@@ -9,6 +9,6 @@ namespace structures {
 	class Kriterium   
 	{
 	public:
-		virtual ResultType evaluate(const ObjectType& object)  = 0;
+		virtual ResultType evaluate(ObjectType object) = 0;
 	};
 }

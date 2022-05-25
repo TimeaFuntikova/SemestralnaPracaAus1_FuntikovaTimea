@@ -75,6 +75,27 @@
     <ClCompile Include="Vzdelanie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KriteriumUZJUJPrislusnost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJNadradenaUzemnaJednotka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVekPocet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVekPodiel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVekovaSkupinaPodiel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVzdelaniePocet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KriteriumUZJUJVzdelaniePodiel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -143,13 +164,7 @@
     <ClInclude Include="Rozdelovnik.h">
       <Filter>Header Files\NacitavanieZoSuboru</Filter>
     </ClInclude>
-    <ClInclude Include="UZJ.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
     <ClInclude Include="KriteriumUZJTyp.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="VyssiCelok.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
     <ClInclude Include="Filter.h">
@@ -211,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="Vzdelanie.h">
       <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="UZJ.h">
+      <Filter>Header Files\UZJ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

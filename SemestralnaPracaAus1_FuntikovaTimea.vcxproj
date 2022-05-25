@@ -140,9 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Kraj.cpp" />
+    <ClCompile Include="KriteriumUZJNadradenaUzemnaJednotka.cpp" />
     <ClCompile Include="KriteriumUZJNazov.cpp" />
     <ClCompile Include="KriteriumUZJTyp.cpp" />
+    <ClCompile Include="KriteriumUZJUJPrislusnost.cpp" />
     <ClCompile Include="KriteriumUZJUJVekovaSkupinaPocet.cpp" />
+    <ClCompile Include="KriteriumUZJUJVekovaSkupinaPodiel.cpp" />
+    <ClCompile Include="KriteriumUZJUJVekPocet.cpp" />
+    <ClCompile Include="KriteriumUZJUJVekPodiel.cpp" />
+    <ClCompile Include="KriteriumUZJUJVzdelaniePocet.cpp" />
+    <ClCompile Include="KriteriumUZJUJVzdelaniePodiel.cpp" />
     <ClCompile Include="Obec.cpp" />
     <ClCompile Include="Reader.cpp" />
     <ClCompile Include="Rozdelovnik.cpp" />
@@ -197,7 +204,6 @@
     <ClInclude Include="UZJ.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Vek.h" />
-    <ClInclude Include="VyssiCelok.h" />
     <ClInclude Include="Vzdelanie.h" />
     <ClInclude Include="Zoznam.h" />
   </ItemGroup>

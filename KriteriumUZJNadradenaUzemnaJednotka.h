@@ -1,6 +1,5 @@
 #pragma once
 #include "KriteriumUZJ.h"
-#include "UZJ.h"
 
 /// <summary>
 /// X. K:UJNadradena
@@ -8,8 +7,8 @@
 
 namespace structures {
 
-	class KriteriumUZJNadradenaUzemnaJednotka : public KriteriumUZJ<UZJ>
+	class KriteriumUZJNadradenaUzemnaJednotka : public KriteriumUZJ<UZJ*>
 	{
-		UZJ evaluate(const UZJ& object) override;
+		UZJ* evaluate(UZJ* object) override;
 	};
 }

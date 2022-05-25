@@ -51,22 +51,19 @@ namespace structures {
 			delete vzdel_;
 			vzdel_ = nullptr;
 
-
-
 		}
+		 std::string& getName()  { return nazov_; };
+		 Vek* getVek() { return vek_; };
+		 typUZJ_enum& getTyp()  { return typ_; };
+		 EVS_enum& getEVS()  { return evs_; };
+		 pohlavie_enum& getPohl()  { return pohl_; };
+		 std::string& getKod() { return kod_; };
 
+		 //HOPE THISLL WORK 
+		 vzdelanie_enum& getEnumVzdelanie() { return vzdelanieEnum_; };
+		 Vzdelanie* getVzdelaniePocet() { return vzdel_; };
 
-		const std::string& getName() const { return nazov_; };
-		const Vek* getVek() { return vek_; };
-		const typUZJ_enum& getTyp() const { return typ_; };
-		const EVS_enum& getEVS() const { return evs_; };
-		const pohlavie_enum& getPohl() const { return pohl_; };
-		const std::string& getKod() const { return kod_; };
-
-		//HOPE THISLL WORK 
-		const vzdelanie_enum& getEnumVzdelanie() const { return vzdelanieEnum_; };
-
-		const UZJ* getVyssiCelok() { return vyssiCelok_; };
+		UZJ* getVyssiCelok() { return vyssiCelok_; };
 		int& getPocetObyvatelov() { return pocetObyv_; };
 
 	};

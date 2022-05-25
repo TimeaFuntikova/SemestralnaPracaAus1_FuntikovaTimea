@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <numeric>
 
-int structures::KriteriumUZJUJVekovaSkupinaPodiel::evaluate(const UZJ& object) //override
+int structures::KriteriumUZJUJVekovaSkupinaPocet::evaluate(UZJ* object) //override
 {
-    //return object.getVek();
-    return -1;
+    return object->getVek()->getPocetEkoVekSkupinuCelkovo(evs_);
+  
 }

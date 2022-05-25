@@ -2,8 +2,8 @@
 
 namespace structures {
 
-	std::string KriteriumUZJNazov::evaluate(const UZJ& object) //override
+	std::string KriteriumUZJNazov::evaluate(UZJ* object) //override
 	{
-		return object.getName();
+		return object->getName();
 	}
 }

@@ -9,8 +9,12 @@ namespace structures {
 
 class KriteriumUZJPatriDoVyssiehoCelku : public KriteriumUZJ<bool>
 {
-	KriteriumUZJPatriDoVyssiehoCelku(int vyssiCelok);
-	bool evaluate(const UZJ& object) override;
+private:
+	UZJ* vyssiCelok_;
+public:
+
+	KriteriumUZJPatriDoVyssiehoCelku(UZJ* vyssiCelok);
+	bool evaluate(UZJ* object) override;
 };
 }
 

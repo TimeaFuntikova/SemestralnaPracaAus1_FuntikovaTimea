@@ -7,9 +7,12 @@
 namespace structures {
 
 class KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim : public KriteriumUZJ<int>
-{
-	KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim(unsigned int vek, static const int pohlavie);
-	int evaluate(const UZJ& object) override;
+{private:
+	int vek_;
+	pohlavie_enum pohl_;
+
+	KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim(int vek, pohlavie_enum pohlavie);
+	int evaluate(UZJ* object) override;
 };
 
 }
