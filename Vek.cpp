@@ -20,6 +20,11 @@ namespace structures {
 		EVSZ_ = nullptr;
 	}
 
+	Array<int>* Vek::getvekSM() { return vekSKM_; }
+	Array<int>* Vek::getvekSZ() { return vekSKZ_; }
+	Array<int>* Vek::getEVSM() { return EVSM_; }
+	Array<int>* Vek::getEVSZ() { return EVSZ_; }
+
 	void Vek::pridajVek(pohlavie_enum pohl, int miestoVPoliNaVek, int kolkoSaNapocitalo) {
 		switch (pohl) {
 		case pohlavie_enum::ZENA:
@@ -41,9 +46,18 @@ namespace structures {
 		}
 	}
 
+	void Vek::pridajVekCelkovo(Vek* vek)
+	{
+		for (int i = 0; i < 101; i++)
+		{
+			vekSKM_->at(i) += vek->getvekSM()->at(i);
+			vekSKZ_->at(i) += vek->getvekSZ()->at(i);
+		}
+	}
+
 	void Vek::pridajDoEVS(Vek* vek) 
 	{
-		//PredProduktivni
+		//Predproduktivni
 		for (int i = 0; i < 15; i++)
 		{
 			getEVSM()->at(0) += vek->getvekSM()->at(i);
@@ -77,34 +91,12 @@ namespace structures {
 
 	void Vek::pridajMDoEVS(EVS_enum evs, int kolkosaPridava)
 	{
-		switch (evs)
-		{
+		switch (evs) {
 		case EVS_enum::PREDPRDUKTIVNI: EVSM_->at(0) += kolkosaPridava; break;
 		case EVS_enum::PRODUKTIVNI: EVSM_->at(1) += kolkosaPridava; break;
 		case EVS_enum::POPRODUKTIVNI:EVSM_->at(2) += kolkosaPridava; break;
 		}
 	}
-
-	Array<int>* Vek::getvekSM()
-	{
-		return vekSKM_;
-	}
-
-	Array<int>* Vek::getvekSZ()
-	{
-		return vekSKZ_;
-	}
-
-	Array<int>* Vek::getEVSM()
-	{
-		return EVSM_;
-	}
-
-	Array<int>* Vek::getEVSZ()
-	{
-		return EVSZ_;
-	}
-
 
 	int Vek::getPocetLudiSDanymVekom(pohlavie_enum pohl, int miestoNaVekVPoli)
 	{
@@ -138,23 +130,30 @@ namespace structures {
 
 	int Vek::getPocetMvEVS(EVS_enum evs)
 	{
-		switch (evs)
-		{
+		switch (evs) {
 		case EVS_enum::PREDPRDUKTIVNI:return EVSM_->at(0); break;
 		case EVS_enum::PRODUKTIVNI:return EVSM_->at(1); break;
 		case EVS_enum::POPRODUKTIVNI: return EVSM_->at(2); break;
 		}
 	}
 
-
 	int Vek::getPocetEkoVekSkupinCelkovo(EVS_enum evs)
 	{
-		switch (evs)
-		{
+		switch (evs) {
 		case EVS_enum::PREDPRDUKTIVNI: return EVSM_->at(0) + EVSZ_->at(0); break;
 		case EVS_enum::PRODUKTIVNI: return EVSM_->at(1) + EVSZ_->at(1); break;
 		case EVS_enum::POPRODUKTIVNI: return EVSM_->at(2) + EVSZ_->at(2); break;
 		}
+	}
+
+	void Vek::setVekSM(Array<int>* vek)
+	{
+		vekSKM_ = vek;
+	}
+
+	void Vek::setVekSZ(Array<int>* vek)
+	{
+		vekSKZ_ = vek;
 	}
 	
 }

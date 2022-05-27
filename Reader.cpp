@@ -4,11 +4,11 @@ namespace structures {
 
 	void Reader::nacitajData()
 	{
-		//zoznamKrajov_ = nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
-		//zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
-		//zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
-		tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
-		//tabulkaVzdelanie_ = nacitajVzdelanie("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vzdelanie.csv");
+		zoznamKrajov_ = nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
+		zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
+		zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
+		//tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
+		tabulkaVzdelanie_ = nacitajVzdelanie("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vzdelanie.csv");
 		/* nacitat vsetko do sequence table*/
 
 
@@ -22,12 +22,12 @@ namespace structures {
 	/// </summary>
 	void Reader::uvolniPamat()
 	{
-		//delete zoznamKrajov_;
-		//delete zoznamObci_;
-		//delete zoznamOkresov_;
+		delete zoznamKrajov_;
+		delete zoznamObci_;
+		delete zoznamOkresov_;
 	
-		delete tabulkaVek_;
-		//delete tabulkaVzdelanie_;
+		//delete tabulkaVek_;
+		delete tabulkaVzdelanie_;
 		std::cout << "__________________________" << std::endl;
 		std::cout << "Pamat sa uvolnila uspesne." << std::endl;
 	}
@@ -122,6 +122,8 @@ namespace structures {
 			std::cout << "Kraje sa nacitali uspesne." << std::endl;
 			nazov_ = "";
 			kod_ = "";
+			riadok_ = "";
+			content_.clear();
 			return zoznamKraje;
 		}
 	LinkedList<LinkedList<std::string>*>* Reader::nacitajObce(std::string fileName)
@@ -179,6 +181,8 @@ namespace structures {
 		std::cout << "Obce sa nacitali uspesne." << std::endl;
 		nazov_ = "";
 		kod_ = "";
+		riadok_ = "";
+		content_.clear();
 		return zoznamObci;
 	}
 	LinkedList<LinkedList<std::string>*>* Reader::nacitajOkresy(std::string fileName) 
@@ -232,9 +236,11 @@ namespace structures {
 			delete zoznam;
 		}
 		delete texty_;
+		riadok_ = "";
 		std::cout << "Okresy sa nacitali uspesne." << std::endl;
 		nazov_ = "";
 		kod_ = "";
+		content_.clear();
 		return zoznamOkresy;  //vratí sa mi smerník na pole smerníkov na stringy ulozene v LL -->priradiť pri nacitavani
 	}
 		
@@ -249,8 +255,8 @@ namespace structures {
 	SortedSequenceTable<std::string, Vek*>* Reader::nacitajVek(std::string fileName) 
 	{
 		pripravNaCitanie(fileName);
-		textySTRPointer_ = new LinkedList<std::string*>();
 
+		textySTRPointer_ = new LinkedList<std::string*>();
 		SortedSequenceTable<std::string, Vek*>* tabulkaVek = new SortedSequenceTable<std::string, Vek*>();
 		for (int i = 0; i < content_.size(); i++)
 		{
@@ -259,7 +265,7 @@ namespace structures {
 			{
 				*riadokPointer_ += content_[i][j];
 			}
-				*riadokPointer_ += ";"; // pre zistovanie ukoncenia neskor
+				*riadokPointer_ += ";";
 				textySTRPointer_->add(riadokPointer_);
 			}
 			int pocitadlo = 0;
@@ -317,7 +323,7 @@ namespace structures {
 				}
 
 				Vek* vekVysledok = new Vek();
-				for (int i = 0; i < 2; i++)
+				for (int i = 0; i < 101; i++)
 				{
 					vekVysledok->pridajVek(pohlavie_enum::MUZ,i, vekMuzi->at(i));
 					vekVysledok->pridajVek(pohlavie_enum::ZENA,i, vekZeny->at(i));
@@ -338,17 +344,18 @@ namespace structures {
 			delete riadokPointer_;
 			riadokPointer_ = nullptr;
 			textySTRPointer_ = nullptr;
+			content_.clear();
 			return tabulkaVek;
 		}
 
 		//_____________________________________________
-		// SEFOVANIE Vzdelania.... IN PROGRESS
+		// SEFOVANIE Vzdelania.... IN PROGRESS...
 		//_____________________________________________
+
 
 		SortedSequenceTable<std::string, Vzdelanie*>*Reader::nacitajVzdelanie(std::string fileName) 
 		{
 			pripravNaCitanie(fileName);
-
 			LinkedList<std::string>* texty = new LinkedList<std::string>;
 			SortedSequenceTable<std::string, Vzdelanie*>* tabulkaVzdelanie = new SortedSequenceTable<std::string, Vzdelanie*>();
 

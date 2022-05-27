@@ -150,16 +150,13 @@
     <ClCompile Include="KriteriumUZJUJVekPodiel.cpp" />
     <ClCompile Include="KriteriumUZJUJVzdelaniePocet.cpp" />
     <ClCompile Include="KriteriumUZJUJVzdelaniePodiel.cpp" />
-    <ClCompile Include="Obec.cpp" />
     <ClCompile Include="Reader.cpp" />
-    <ClCompile Include="Rozdelovnik.cpp" />
     <ClCompile Include="SemestralnaPracaAus1_FuntikovaTimea.cpp" />
     <ClCompile Include="Structure.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Vek.cpp" />
     <ClCompile Include="Vzdelanie.cpp" />
-    <ClCompile Include="Zoznam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
@@ -176,7 +173,6 @@
     <ClInclude Include="Filter_Fl.h" />
     <ClInclude Include="Filter_OR.h" />
     <ClInclude Include="Handler.h" />
-    <ClInclude Include="IObec.h" />
     <ClInclude Include="Kraj.h" />
     <ClInclude Include="Kriterium.h" />
     <ClInclude Include="KriteriumUZJ.h" />
@@ -192,9 +188,7 @@
     <ClInclude Include="KriteriumUZJUJVzdelaniePodiel.h" />
     <ClInclude Include="linked_list.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="Obec.h" />
     <ClInclude Include="Reader.h" />
-    <ClInclude Include="Rozdelovnik.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="Structure_Iterator.h" />
     <ClInclude Include="table\data_item.h" />
@@ -206,7 +200,6 @@
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Vek.h" />
     <ClInclude Include="Vzdelanie.h" />
-    <ClInclude Include="Zoznam.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

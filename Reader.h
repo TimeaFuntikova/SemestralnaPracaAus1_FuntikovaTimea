@@ -40,7 +40,7 @@ namespace structures {
 		std::string kod_ = "";
 		std::string nazov_ = "";
 		LinkedList<std::string>* texty_;
-		LinkedList<std::string*>* textySTRPointer_;
+		LinkedList<std::string*>* textySTRPointer_ = nullptr;
 
 	public:
 		Reader() { nacitajData();}

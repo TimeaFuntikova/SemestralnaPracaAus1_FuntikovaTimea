@@ -17,6 +17,7 @@ namespace structures {
 		Vek();
 		~Vek();
 		void pridajVek(pohlavie_enum pohl, int miestoVPoliNaVek, int kolkoSaNapocitalo);
+		void pridajVekCelkovo(Vek* vek);
 		void pridajDoEVS(Vek* vek);
 		void pridajZDoEVS(EVS_enum evs, int kolkosaPridava);
 		void pridajMDoEVS(EVS_enum evs, int kolkosaPridava);
@@ -28,6 +29,9 @@ namespace structures {
 		int getPocetZvEVS(EVS_enum evs);
 		int getPocetMvEVS(EVS_enum evs);
 		int getPocetEkoVekSkupinCelkovo(EVS_enum evs);
+
+		void setVekSM(Array<int>* vek);
+		void setVekSZ(Array<int>* vek);
 	};
 }
 

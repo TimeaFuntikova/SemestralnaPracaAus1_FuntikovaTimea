@@ -48,22 +48,10 @@
     <ClCompile Include="KriteriumUZJNazov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Obec.cpp">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClCompile>
-    <ClCompile Include="Zoznam.cpp">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClCompile>
-    <ClCompile Include="Rozdelovnik.cpp">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClCompile>
     <ClCompile Include="KriteriumUZJTyp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="KriteriumUZJUJVekovaSkupinaPocet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Kraj.cpp">
@@ -95,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="KriteriumUZJUJVzdelaniePodiel.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Header Files\NacitavanieZoSuboru</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,18 +143,6 @@
     <ClInclude Include="KriteriumUZJUJVekPodiel.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="IObec.h">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClInclude>
-    <ClInclude Include="Obec.h">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClInclude>
-    <ClInclude Include="Zoznam.h">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClInclude>
-    <ClInclude Include="Rozdelovnik.h">
-      <Filter>Header Files\NacitavanieZoSuboru</Filter>
-    </ClInclude>
     <ClInclude Include="KriteriumUZJTyp.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
@@ -209,9 +188,6 @@
     <ClInclude Include="table\data_item.h">
       <Filter>Header Files\structures\table</Filter>
     </ClInclude>
-    <ClInclude Include="Reader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Kraj.h">
       <Filter>Header Files\UZJ</Filter>
     </ClInclude>
@@ -232,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="Handler.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Header Files\NacitavanieZoSuboru</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
