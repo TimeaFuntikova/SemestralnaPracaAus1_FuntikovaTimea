@@ -5,8 +5,8 @@ namespace structures {
 	void Reader::nacitajData()
 	{
 		zoznamKrajov_ = nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
-		zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
-		zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
+		//zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
+		//zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
 		//tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
 		tabulkaVzdelanie_ = nacitajVzdelanie("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vzdelanie.csv");
 		/* nacitat vsetko do sequence table*/
@@ -23,11 +23,11 @@ namespace structures {
 	void Reader::uvolniPamat()
 	{
 		delete zoznamKrajov_;
-		delete zoznamObci_;
-		delete zoznamOkresov_;
-	
+		//delete zoznamObci_;
+		//delete zoznamOkresov_;
 		//delete tabulkaVek_;
 		delete tabulkaVzdelanie_;
+
 		std::cout << "__________________________" << std::endl;
 		std::cout << "Pamat sa uvolnila uspesne." << std::endl;
 	}
@@ -359,7 +359,6 @@ namespace structures {
 			LinkedList<std::string>* texty = new LinkedList<std::string>;
 			SortedSequenceTable<std::string, Vzdelanie*>* tabulkaVzdelanie = new SortedSequenceTable<std::string, Vzdelanie*>();
 
-
 			// nacitam vsetky texty z csv file
 			for (int i = 0; i < content_.size(); i++)
 			{
@@ -400,10 +399,9 @@ namespace structures {
 					i++;
 				}
 
+				std::cout << "sem sa dostanem..." << std::endl;
 				Vzdelanie* vzdelanieObjekt = new Vzdelanie();
 
-				for (int i = 0; i < vzdelanie->size(); i++)
-				{
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA, vzdelanie->at(i));
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::ZAKLADNE,vzdelanie->at(i));
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::UCNOVSKE, vzdelanie->at(i));
@@ -412,8 +410,7 @@ namespace structures {
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSOKOSKOLSKE, vzdelanie->at(i));
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_VZDELANIA, vzdelanie->at(i));
 					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::NEZISTENE, vzdelanie->at(i));
-				}
-
+				
 				tabulkaVzdelanie->insert(kodUJ, vzdelanieObjekt);
 				delete vzdelanie;
 			}

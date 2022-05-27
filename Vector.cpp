@@ -34,10 +34,16 @@ namespace structures
 	{
 		if (this != &other)
 		{
+			/*
 			Vector& otherVector = dynamic_cast<Vector&>(other); //dynamicke pretypovanie
 			this->memory_ = std::realloc(this->memory_, otherVector.size_);
 			std::memcpy(this->memory_, otherVector.memory_, this->size_);
 			this->size_ = otherVector.size_;
+			*/
+			Vector& otherVector = dynamic_cast<Vector&>(other);
+			size_ = otherVector.size_;
+			memory_ = realloc(memory_, size_);
+			memcpy(memory_, otherVector.memory_, size_);
 		}
 		return *this;
 	}
@@ -71,20 +77,14 @@ namespace structures
 		// destStartIndex patri do <0, dest.size_)
 		// destStartIndex + length patri do <0, dest.size_>
 
-
-
 		//ak su src a dest identicke, a vzdialenost medzi srcStartIndex a destStartIndex je mensia ako length
 		// tak: memmove
 		// inak: memcpy
-
-
 
 		Utils::rangeCheckExcept(srcStartIndex, src.size_, "Invalid srcStartIndex!");
 		Utils::rangeCheckExcept(srcStartIndex + length, src.size_ + 1, "Invalid srcStartIndex!");
 		Utils::rangeCheckExcept(destStartIndex, src.size_, "Invalid destStartIndex!");
 		Utils::rangeCheckExcept(destStartIndex + length, src.size_ + 1, "Invalid destStartIndex!");
-
-
 
 		if (&src == &dest && abs(srcStartIndex - destStartIndex) < length) {
 			memmove(dest.getBytePointer(destStartIndex), src.getBytePointer(srcStartIndex), length);
@@ -99,7 +99,7 @@ namespace structures
 		if (index < 0 || index >= this->size_) {
 			throw std::out_of_range("Vector::getBytePointer: invalid index.");
 		}
-		Utils::rangeCheckExcept(index, size_, "Invalid index!");
+		//Utils::rangeCheckExcept(index, size_, "Invalid index!");
 		return reinterpret_cast<byte*>(this->memory_) + index;
 	}
 }

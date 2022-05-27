@@ -21,6 +21,8 @@ namespace structures {
 		void pridajDoEVS(Vek* vek);
 		void pridajZDoEVS(EVS_enum evs, int kolkosaPridava);
 		void pridajMDoEVS(EVS_enum evs, int kolkosaPridava);
+		void setVekSM(Array<int>* vek);
+		void setVekSZ(Array<int>* vek);
 		Array<int>* getvekSM();
 		Array<int>* getvekSZ();
 		Array<int>* getEVSM();
@@ -30,8 +32,6 @@ namespace structures {
 		int getPocetMvEVS(EVS_enum evs);
 		int getPocetEkoVekSkupinCelkovo(EVS_enum evs);
 
-		void setVekSM(Array<int>* vek);
-		void setVekSZ(Array<int>* vek);
 	};
 }
 

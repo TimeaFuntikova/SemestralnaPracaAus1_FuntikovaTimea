@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../ArrayList.h"
 #include "sequence_table.h"
 
@@ -79,62 +78,72 @@ namespace structures
 	template<typename K, typename T>
 	inline void SortedSequenceTable<K, T>::insert(const K& key, const T& data)
 	{
-		
 		bool found = false;
-		int index = this->indexOfKey(key, 0, SequenceTable<K, T>::size(), found);
+		int index = indexOfKey(key, 0, static_cast<int>(SequenceTable<K, T>::size()), found);
+
 		if (!found)
 		{
-			SequenceTable<K,T>::list_->insert(new TableItem<K, T>(key, data), index);
+			TableItem<K, T>* tableItem = new TableItem<K, T>(key, data);
+			SequenceTable<K, T>::list_->insert(tableItem, index);
 		}
 		else
 		{
-			throw std::logic_error("SortedSequenceTable<K, T>::insert(const K& key, const T& data): Tento kluc sa uz v tabulke nachadza.");
+			throw std::logic_error("SortedSequenceTable<K, T>::insert : Duplicate key! ");
 		}
 	}
 
 	template<typename K, typename T>
 	inline TableItem<K, T>* SortedSequenceTable<K, T>::findTableItem(const K& key)
 	{
-		bool found;
-		int index = this->indexOfKey(key, 0, SequenceTable<K, T>::size(), found);
-		return found ? SequenceTable<K, T>::list_->at(index) : nullptr;
+		if (SequenceTable<K, T>::size() == 0)
+		{
+			return nullptr;
+		}
+		else
+		{
+			bool found = false;
+			int index = indexOfKey(key, 0, static_cast<int>(SequenceTable<K, T>::size()), found);
+			return found ? SequenceTable<K, T>::list_->at(index) : nullptr;
+		}
 	}
 
 	template<typename K, typename T>
 	inline int SortedSequenceTable<K, T>::indexOfKey(K key, int indexStart, int indexEnd, bool& found)
 	{
-		if (indexStart == SequenceTable<K, T>::size())
+		int indexSize = static_cast<int>(SequenceTable<K, T>::size());
+
+		if (indexStart == indexSize)
 		{
 			found = false;
-			return indexStart;
+			return indexSize;
 		}
-		int pol = (indexStart + indexEnd) / 2;
-		K stred = SequenceTable<K, T>::list_->at(pol)->getKey();
-		
-		if (stred == key)
+
+		int pivot = (indexStart + indexEnd) / 2;
+		K keyAtPivot = SequenceTable<K, T>::list_->at(pivot)->getKey();
+
+		if (keyAtPivot == key)
 		{
 			found = true;
-			return pol;
+			return pivot;
 		}
 		else
 		{
 			if (indexStart == indexEnd)
 			{
 				found = false;
-				return key < stred ? pol : pol + 1;
+				return key < keyAtPivot ? pivot : pivot + 1;
 			}
 			else
 			{
-				if (stred < key)
+				if (keyAtPivot < key)
 				{
-					int NDH = pol + 1;
-					this->indexOfKey(key, NDH, indexEnd, found);
+					indexStart = pivot + 1;
 				}
 				else
 				{
-					int NHH = pol;
-					this->indexOfKey(key, indexStart, NHH, found);
-				}												  					
+					indexEnd = pivot;
+				}
+				return indexOfKey(key, indexStart, indexEnd, found);
 			}
 		}
 	}

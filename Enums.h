@@ -2,8 +2,8 @@
 
 
 //https://en.cppreference.com/w/cpp/language/enum
-enum class typUZJ_enum : char {
-	STAT = 'S', KRAJ = 'K', OKRES = 'OK', OBEC = 'OB'
+enum class typUZJ_enum {
+	STAT, KRAJ, OKRES , OBEC
 };
 
 enum class pohlavie_enum : char {

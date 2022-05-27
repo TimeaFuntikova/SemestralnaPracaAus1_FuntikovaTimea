@@ -4,6 +4,8 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include<clocale>
+
 
 //#include "ArrayList.h" //po urcitom case zacne detekovat memleaky, akoby nebolschopny spracovat vela dat
 #include "linked_list.h"

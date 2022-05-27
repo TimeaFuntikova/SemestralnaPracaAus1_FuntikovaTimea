@@ -175,7 +175,7 @@ namespace structures
 	template<typename T>
 	inline int Array<T>::mapFunction(int index) const
 	{
-		Utils::rangeCheckExcept(index, size_, "Invalid index");
+		//Utils::rangeCheckExcept(index, size_, "Invalid index");
 		return index * sizeof(T);
 	}
 }
