@@ -5,9 +5,9 @@ namespace structures {
 	void Reader::nacitajData()
 	{
 		zoznamKrajov_ = nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
-		//zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
-		//zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
-		//tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
+		zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
+		zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
+		tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
 		tabulkaVzdelanie_ = nacitajVzdelanie("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vzdelanie.csv");
 		/* nacitat vsetko do sequence table*/
 
@@ -23,9 +23,9 @@ namespace structures {
 	void Reader::uvolniPamat()
 	{
 		delete zoznamKrajov_;
-		//delete zoznamObci_;
-		//delete zoznamOkresov_;
-		//delete tabulkaVek_;
+		delete zoznamObci_;
+		delete zoznamOkresov_;
+		delete tabulkaVek_;
 		delete tabulkaVzdelanie_;
 
 		std::cout << "__________________________" << std::endl;
@@ -252,7 +252,7 @@ namespace structures {
 
 
 	//PO JEDNOM ROVNO VKLADAT -->REFACT.
-	SortedSequenceTable<std::string, Vek*>* Reader::nacitajVek(std::string fileName) 
+	SortedSequenceTable<std::string, Vek*>* Reader::nacitajVek(std::string fileName)
 	{
 		pripravNaCitanie(fileName);
 
@@ -261,99 +261,113 @@ namespace structures {
 		for (int i = 0; i < content_.size(); i++)
 		{
 			riadokPointer_ = new std::string();
+
 			for (int j = 0; j < content_[i].size(); j++)
 			{
 				*riadokPointer_ += content_[i][j];
 			}
-				*riadokPointer_ += ";";
-				textySTRPointer_->add(riadokPointer_);
-			}
-			int pocitadlo = 0;
-			for (std::string* item : *textySTRPointer_) 
+			*riadokPointer_ += ";";
+			textySTRPointer_->add(riadokPointer_);
+		}
+
+		int pocitadlo = 0;
+
+		for (std::string* item : *textySTRPointer_)
+		{
+			pocitadlo++;
+			if (pocitadlo == 2928)
 			{
-				pocitadlo++;
-				if (pocitadlo == 2928)
-				{
-					break;
-				}
-
-				Array<int>* vekMuzi = new Array<int>(101);
-				Array<int>* vekZeny = new Array<int>(101);
-
-				//kod:
-				int i = 0;
-				std::string item2 = *item;
-
-				while (item2.at(i) != ';') {
-					kod_ += item2.at(i);
-					i++;
-				}
-				i++;
-
-				//preskocim nazov
-				while (item2.at(i) != ';') {
-					i++;
-				}
-				i++;
-
-				//muzi:
-				for (int j = 0; j < 101; j++)
-				{
-					std::string vekPocetStr = "";
-					while (item2.at(i) != ';') 
-					{
-						vekPocetStr += item2.at(i);
-						i++;
-					}
-					vekMuzi->at(j) = stoi(vekPocetStr); //funkcia na konverziu string-->int
-					i++;
-				}
-
-				//zeny:
-				for (int j = 0; j < 101; j++)
-				{
-					std::string vekPocetStr = "";
-					while (item2.at(i) != ';') 
-					{
-						vekPocetStr += item2.at(i);
-						i++;
-					}
-					vekZeny->at(j) = stoi(vekPocetStr);
-					i++;
-				}
-
-				Vek* vekVysledok = new Vek();
-				for (int i = 0; i < 101; i++)
-				{
-					vekVysledok->pridajVek(pohlavie_enum::MUZ,i, vekMuzi->at(i));
-					vekVysledok->pridajVek(pohlavie_enum::ZENA,i, vekZeny->at(i));
-				}
-
-				tabulkaVek->insert(kod_, vekVysledok);
-				delete vekMuzi;
-				delete vekZeny;
+				break;
 			}
+
+			kod_ = "";
+
+			Array<int>* vekMuzi = new Array<int>(101);
+			Array<int>* vekZeny = new Array<int>(101);
+
+			//kod:
+			int i = 0;
+			std::string item2 = *item;
+
+			while (item2.at(i) != ';') {
+				kod_ += item2.at(i);
+				i++;
+			}
+			i++;
+
+			//preskocim nazov
+			while (item2.at(i) != ';') {
+				i++;
+			}
+			i++;
+
+			//muzi:
+			for (int j = 0; j < 101; j++)
+			{
+				std::string vekPocetStr = "";
+				while (item2.at(i) != ';')
+				{
+					vekPocetStr += item2.at(i);
+					i++;
+				}
+				vekMuzi->at(j) = stoi(vekPocetStr); //funkcia na konverziu string-->int
+				i++;
+			}
+
+			//zeny:
+			for (int j = 0; j < 101; j++)
+			{
+				std::string vekPocetStr = "";
+				while (item2.at(i) != ';')
+				{
+					vekPocetStr += item2.at(i);
+					i++;
+				}
+				vekZeny->at(j) = stoi(vekPocetStr);
+				i++;
+			}
+
+			//std::cout << "i got here and the reading is just fine " << std::endl;
+			Vek* vekVysledok = new Vek(); //constructor?
+
+			for (int i = 0; i < 101; i++)
+			{
+				vekVysledok->pridajVek(pohlavie_enum::MUZ, i, vekMuzi->at(i));
+				//std::cout << "trying to add the cout of:  "
+					//+ std::to_string(i) + " to the count of men in an specific array." << std::endl;
+
+				vekVysledok->pridajVek(pohlavie_enum::ZENA, i, vekZeny->at(i));
+				//std::cout << "trying to add the cout of:  "
+					//+ std::to_string(i) + " to the count of women in an specific array." << std::endl;
+			}
+
+			tabulkaVek->insert(kod_, vekVysledok);
+			//std::cout << "Do table sa vlozilo :  "
+				//+ std::to_string(i) + " ." << std::endl;
+
+			delete vekMuzi;
+			delete vekZeny;
+		}
 			for (int i = 0; i < textySTRPointer_->size(); i++)
 			{
 				delete textySTRPointer_->at(i);
 			}
 
-			delete textySTRPointer_;
-			nazov_ = "";
-			kod_ = "";
-			delete riadokPointer_;
-			riadokPointer_ = nullptr;
-			textySTRPointer_ = nullptr;
-			content_.clear();
-			return tabulkaVek;
-		}
+		delete textySTRPointer_;
+		kod_ = "";
+		//delete riadokPointer_;
+		// = nullptr;
+		textySTRPointer_ = nullptr;
+		content_.clear();
 
-		//_____________________________________________
-		// SEFOVANIE Vzdelania.... IN PROGRESS...
-		//_____________________________________________
+		std::cout << "Vek sa nacital uspesne." << std::endl;
+		return tabulkaVek;
+	}
 
-
-		SortedSequenceTable<std::string, Vzdelanie*>*Reader::nacitajVzdelanie(std::string fileName) 
+		//________________________
+		// SEFOVANIE Vzdelania..
+		//________________________
+		SortedSequenceTable<std::string, Vzdelanie*>* Reader::nacitajVzdelanie(std::string fileName)
 		{
 			pripravNaCitanie(fileName);
 			LinkedList<std::string>* texty = new LinkedList<std::string>;
@@ -398,23 +412,29 @@ namespace structures {
 					vzdelanie->at(j) = stoi(vzdelaniePocetStr);
 					i++;
 				}
-
-				std::cout << "sem sa dostanem..." << std::endl;
 				Vzdelanie* vzdelanieObjekt = new Vzdelanie();
+				//std::cout << "VYtvoril som smerník na vzdelaniaObjekt vek s poctom najdenych ludi: " + std::to_string(i) << std::endl;
 
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::ZAKLADNE,vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::UCNOVSKE, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::STREDNE, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSSIE, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSOKOSKOLSKE, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_VZDELANIA, vzdelanie->at(i));
-					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::NEZISTENE, vzdelanie->at(i));
-				
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA, vzdelanie->at(0));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::ZAKLADNE, vzdelanie->at(1));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::UCNOVSKE, vzdelanie->at(2));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::STREDNE, vzdelanie->at(3));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSSIE, vzdelanie->at(4));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSOKOSKOLSKE, vzdelanie->at(5));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_VZDELANIA, vzdelanie->at(6));
+				vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::NEZISTENE, vzdelanie->at(7));
 				tabulkaVzdelanie->insert(kodUJ, vzdelanieObjekt);
+
+				//std::cout << "Uspesne som vlozi do sst tabulky: vzdelanie s poctom : " + std::to_string(i) << std::endl;
+
+				//std::cout << tabulkaVzdelanie->find(kodUJ) << std::endl;
+				//std::cout << "V tabulke su data s klucom: " + kodUJ + " a poctom vzdelanych ludi: " + std::to_string(i) << std::endl;
+
 				delete vzdelanie;
 			}
 			delete texty;
+			std::cout << "Vzdelanie sa nacitalo uspesne." << std::endl;
+
 			return tabulkaVzdelanie;
 		}
 }

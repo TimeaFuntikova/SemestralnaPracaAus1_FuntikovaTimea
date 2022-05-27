@@ -1,9 +1,10 @@
-#include "Vzdelanie.h"
+﻿#include "Vzdelanie.h"
 
 namespace structures {
 
 	Vzdelanie::Vzdelanie() {
 		vzdelanieSK_ = new structures::Array<int>(8);
+		vzdelanieEnum_ = vzdelanie_enum::NEZISTENE;
 	}
 
 	Vzdelanie::~Vzdelanie() {
@@ -46,7 +47,7 @@ namespace structures {
 		case vzdelanie_enum::BEZ_VZDELANIA: vzdelanieSK_->at(6); break;
 		case vzdelanie_enum::NEZISTENE: vzdelanieSK_->at(7); break;
 		default:
-			return -1;
+			return -1; //keď sa toto zaráta do zozb dát -> neda sa odhalit pripadna chyba...
 			break;
 		}
 	}

@@ -40,6 +40,7 @@ namespace structures
 			std::memcpy(this->memory_, otherVector.memory_, this->size_);
 			this->size_ = otherVector.size_;
 			*/
+
 			Vector& otherVector = dynamic_cast<Vector&>(other);
 			size_ = otherVector.size_;
 			memory_ = realloc(memory_, size_);
