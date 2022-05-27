@@ -4,6 +4,6 @@
 
 int structures::KriteriumUZJUJVekovaSkupinaPocet::evaluate(UZJ* object) //override
 {
-    return object->getVek()->getPocetEkoVekSkupinuCelkovo(evs_);
+    return object->getVek()->getPocetEkoVekSkupinCelkovo(evs_);
   
 }

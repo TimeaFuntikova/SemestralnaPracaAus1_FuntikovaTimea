@@ -5,69 +5,61 @@
 #include <vector>
 #include <sstream>
 
-#include "Kraj.h"
 //#include "ArrayList.h" //po urcitom case zacne detekovat memleaky, akoby nebolschopny spracovat vela dat
 #include "linked_list.h"
-
+#include "table/sorted_sequence_table.h"
+#include "Vek.h"
+#include "Vzdelanie.h"
 
 namespace structures {
 
-	//inspiration from: https://www.youtube.com/watch?v=wRj9PZ2wyZI&ab_channel=TejasPatil
+	/* * inspirations for reading files from : https://www.youtube.com/watch?v=wRj9PZ2wyZI&ab_channel=TejasPatil
+	* https://stackoverflow.com/questions/63470603/what-is-the-best-way-to-take-an-input-line-and-add-the-words-in-the-line-to-a-ve
+	* */
 
-
-		/// <summary>
-		/// slúži na načítavanie zo súborov
-		/// </summary>
+	/// <summary>
+	/// slúži na načítavanie zo súborov
+	/// </summary>
 	class Reader
 	{
-		//TU SORTEDSEQUENCE TABLE !!!!
-		//structures::SortedSequenceTable<int, std::string>* sqceTable_;  //v tvare por.cislo a nazov kraja
+	private:
+		LinkedList<LinkedList<std::string>*>* zoznamObci_;
+		LinkedList<LinkedList<std::string>*>* zoznamOkresov_;
+		LinkedList<LinkedList<std::string>*>* zoznamKrajov_;
+		SortedSequenceTable<std::string, Vek*>* tabulkaVek_;
+		SortedSequenceTable<std::string, Vzdelanie*>* tabulkaVzdelanie_;
 
-		/*
-	public:
-		Reader();
-		structures::Array<Kraj*>* zoznamKrajov_;
-		virtual ~Reader() = default;
-		//void Start();
-	public:
-		bool nacitajAtrNaZahodenie(); // NOT DONE
-		void nacitajTabulku(); //test, ci funguje, memleaky none
-		bool nacitajData(); //suhrn nacitani vsetkych dat a ulozenie ich do prisl udajovych struktur
-		bool nacitajKraje(const char* nazov);
+		void pripravNaCitanie(std::string fileName);
 
-
-		structures::LinkedList<structures::LinkedList<std::string>*>* nacitajKraje(std::string nazovSuboru);
-
-		//structures::SortedSequenceTable<int, std::string>* getSqceTable();
-		//char* VytvorVystup(const char* menosuboru);
-	//protected:
-		//void Uloz(const char* subor, Zoznam& zoznam);
-		//void Uloz(std::ofstream& vystup, const Obec& obec);
-		//virtual Obec* AlokujObec(const unsigned pocet, const char* nazov);
-		//Obec* DajObec(unsigned i) const {return }
-
-
-
-		//bool nacitajKraje(char* nazov, structures::SortedSequenceTable<int, std::string>*); //sequenceTable
-
-		bool nacitajObce(); //sequenceTable
-		bool nacitajOkresy(); //sequenceTable
-		bool nacitajVzdelanie();//sequenceTable
-		bool nacitajVek();//sequenceTable
-
-	};
-	*/
+		/*pomocne atributy na pracu so subormi*/
+		/* 1. pre pripravu na nacitanie obsahu csv suborov, s vyuzitim externej kniznice*/
+		std::vector<std::vector<std::string>> content_;
+		/* 2. pre pracu s csv subormi*/
+		std::string riadok_ = "";
+		std::string* riadokPointer_ = nullptr;
+		std::string kod_ = "";
+		std::string nazov_ = "";
+		LinkedList<std::string>* texty_;
+		LinkedList<std::string*>* textySTRPointer_;
 
 	public:
-
-		Reader()
-		{
-			//nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
-			nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
-		}
+		Reader() { nacitajData();}
 		~Reader() = default;
-		LinkedList<LinkedList<std::string>*>* nacitajObce(std::string fileName);
-		LinkedList<LinkedList<std::string>*>* nacitajKraje(std::string fileName);
+		void nacitajData();
+		void uvolniPamat();
+		LinkedList<LinkedList<std::string>*>* nacitajObce(std::string fileName);//odstranenaDiakritika
+		LinkedList<LinkedList<std::string>*>* nacitajOkresy(std::string fileName);//odstranenaDiakritika && "Okres "
+		LinkedList<LinkedList<std::string>*>* nacitajKraje(std::string fileName); //odstranenaDiakritika
+
+		SortedSequenceTable<std::string, Vek*>* nacitajVek(std::string fileName);
+		SortedSequenceTable<std::string, Vzdelanie*>* nacitajVzdelanie(std::string fileName);
+
+		LinkedList<LinkedList<std::string>*>* getZoznamKObci();
+		LinkedList<LinkedList<std::string>*>* getZoznamKOkresov();
+		LinkedList<LinkedList<std::string>*>* getZoznamKrajov();
+
+		SortedSequenceTable<std::string, Vek*>* getTabulkaVek();
+		SortedSequenceTable<std::string, Vzdelanie*>* getTabulkaVzdelanie();
 	};
 }
 

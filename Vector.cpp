@@ -1,6 +1,5 @@
 #include "Utils.h"
 #include "Vector.h"
-
 #include <cstdlib>
 #include <cstring>
 

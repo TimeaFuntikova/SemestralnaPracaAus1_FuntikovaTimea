@@ -175,6 +175,7 @@
     <ClInclude Include="Filter_fi.h" />
     <ClInclude Include="Filter_Fl.h" />
     <ClInclude Include="Filter_OR.h" />
+    <ClInclude Include="Handler.h" />
     <ClInclude Include="IObec.h" />
     <ClInclude Include="Kraj.h" />
     <ClInclude Include="Kriterium.h" />

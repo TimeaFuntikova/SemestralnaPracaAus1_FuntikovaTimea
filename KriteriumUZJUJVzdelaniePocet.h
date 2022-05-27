@@ -10,6 +10,7 @@ namespace structures {
 	{
 	private:
 		vzdelanie_enum vzdel_;
+	public:
 		KriteriumUZJUJPocetObyvatelovSoVzdelanim(vzdelanie_enum vzdelanie);
 		int evaluate(UZJ* object) override;
 	};

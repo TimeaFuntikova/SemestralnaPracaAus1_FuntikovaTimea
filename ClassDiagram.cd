@@ -1,74 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="structures::Kriterium&lt;ObjectType, ResultType&gt;" Collapsed="true">
-    <Position X="0.75" Y="1.75" Width="3.5" />
+  <Class Name="structures::Kriterium&lt;ObjectType, ResultType&gt;">
+    <Position X="2.5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Kriterium.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="structures::KriteriumUZJ&lt;ResultType&gt;" Collapsed="true">
-    <Position X="0.75" Y="2.75" Width="3.5" />
+    <Position X="2.5" Y="2" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJ.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJNazov" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="3.25" />
+  <Class Name="structures::KriteriumUZJNazov">
+    <Position X="0.5" Y="3.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJNazov.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJTyp" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.75" />
+  <Class Name="structures::KriteriumUZJTyp">
+    <Position X="4.25" Y="3.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJTyp.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJPatriDoVyssiehoCelku" Collapsed="true">
-    <Position X="5.5" Y="2.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJPatriDoVyssiehoCelku">
+    <Position X="7.75" Y="3.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>KriteriumUZJUJPrislusnost.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim" Collapsed="true">
-    <Position X="5.5" Y="3.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJPocetObyvatelovSDanymVekomAPohlavim">
+    <Position X="0.5" Y="6.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAgAAAAAAAAAIAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVekPocet.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJUJPocetObyvatelovSoVzdelanim" Collapsed="true">
-    <Position X="5.5" Y="5.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJUJPocetObyvatelovSoVzdelanim">
+    <Position X="11.25" Y="3.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVzdelaniePocet.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJUJVzdelaniePodiel" Collapsed="true">
-    <Position X="5.5" Y="6.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJUJVzdelaniePodiel">
+    <Position X="14.75" Y="3.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVzdelaniePodiel.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJNadradenaUzemnaJednotka" Collapsed="true">
-    <Position X="5.5" Y="7.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJNadradenaUzemnaJednotka">
+    <Position X="14.75" Y="6.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJNadradenaUzemnaJednotka.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="structures::KriteriumUZJUJVekovaSkupinaPocet" Collapsed="true">
-    <Position X="5.5" Y="4.75" Width="3.25" />
+  <Class Name="structures::KriteriumUZJUJVekovaSkupinaPocet">
+    <Position X="7.75" Y="6.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KriteriumUZJUJVekovaSkupinaPocet.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="structures::KriteriumUZJUJVekPodiel">
+    <Position X="4.25" Y="6.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAIAAAAAAQAQAAAAAAA=</HashCode>
+      <FileName>KriteriumUZJUJVekPodiel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="structures::KriteriumUZJUJVekovaSkupinaPodiel">
+    <Position X="11.25" Y="6.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KriteriumUZJUJVekovaSkupinaPodiel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="typUZJ_enum" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAABAAAAAAAQAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="pohlavie_enum" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EVS_enum" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="vzdelanie_enum" Collapsed="true">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgAAAAAQAAAgAAAACAAAAAAAAACAAAAAACAAA=</HashCode>
+      <FileName>Enums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

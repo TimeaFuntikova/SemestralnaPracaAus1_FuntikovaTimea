@@ -95,6 +95,10 @@ namespace structures
 			return false;
 		}
 
+		if (this->size() != other->size()) {
+			return false;
+		}
+
 		for (TableItem<K, T>* otherItem : *other)
 		{
 			T data;

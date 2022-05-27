@@ -1,162 +1,52 @@
-#include "Reader.h"
-
-
+﻿#include "Reader.h"
 
 namespace structures {
-	//"C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv"
 
-	/*
-	void Reader::nacitajTabulku()
-		{
-			sqceTable_ = new structures::SortedSequenceTable<int, std::string>();
-			for (int i = 0; i < 10; i++) {
-
-				sqceTable_->insert(i, "i");
-				std::cout << "Do tabulky sa pridal prvok: " + std::to_string(i) + " .";
-			}
-			delete sqceTable_;
-		}
-
-		structures::SortedSequenceTable<int, std::string>* Reader::getSqceTable()
-		{
-			return sqceTable_;
-		}
-
-		Reader::Reader()
-		{
-			std::string path = "C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv";
-			nacitajKraje(path);
-		}
-
-		*/
-		//PREROBIC -- LL + memleaky dokopat
-		structures::LinkedList<structures::LinkedList<std::string>*>* Reader::nacitajKraje(std::string nazovSuboru)
-		{
-			std::vector<std::vector<std::string>> content;
-			std::vector<std::string> row;
-			std::string line, word;
-
-			std::fstream file(nazovSuboru, std::ios::in);
-			if (file.is_open())
-			{
-				bool firstTime = true;
-				while (getline(file, line))
-				{
-					if (firstTime) {
-						firstTime = false;
-						continue;
-					}
-					row.clear();
-
-					std::stringstream str(line);
-
-					while (getline(str, word, ','))
-						row.push_back(word);
-					content.push_back(row);
-				}
-			}
-			else {
-				std::cout << "Could not open the file\n";
-			}
-
-			structures::LinkedList<std::string>* liness = new structures::LinkedList<std::string>();
-			structures::LinkedList<structures::LinkedList<std::string>*>* result = new structures::LinkedList<structures::LinkedList<std::string>*>();
-
-			for (int i = 0; i < content.size(); i++)
-			{
-				std::string riadok = "";
-				for (int j = 0; j < content[i].size(); j++)
-				{
-					riadok += content[i][j];
-				}
-
-				if (riadok == ";;;;;") {
-					break;
-				}
-
-
-				riadok += ";";
-
-				liness->add(riadok);
-			}
-
-
-			for (std::string item : *liness) {
-				std::string kodUJ = "";
-				std::string nazovUJ = "";
-				int i = 0;
-
-				// najprv prejdem po prvu ";" v obciach, vyfiltrujem poradove cislo, netreba mi ho, potom sa dostanem na meno obce
-				while (item.at(i) != ';') {
-					//stlpec A
-					i++;
-				}
-				i++;
-				while (item.at(i) != ';') {
-					//stlpec B
-					i++;
-				}
-				i++;
-
-				while (item.at(i) != ';') {
-					//stlpec C
-					nazovUJ += item.at(i);
-					i++;
-				}
-				i++;
-
-				while (item.at(i) != ';') {
-					//stlpec D
-					i++;
-				}
-				i++;
-
-				while (item.at(i) != ';') {
-					//stlpec E
-					i++;
-				}
-				i++;
-
-				i = i + 5; //chcem preskocit prvych 5 znakov v stlpcochF
-				while (item.at(i) != ';') {
-					//stlpec F
-					kodUJ += item.at(i);
-					i++;
-				}
-				i++;
-
-				structures::LinkedList<std::string>* zoznam = new structures::LinkedList<std::string>;
-				zoznam->add(nazovUJ);
-				zoznam->add(kodUJ);
-				result->add(zoznam);
-
-				for (std::string item : *zoznam) {
-					std::cout << item << std::endl;
-				}
-				delete zoznam;
-
-			}
-			delete liness;
-			
-			return result;
-		}
-
-		/*
-		bool nacitajObce(); //sequenceTable
-		bool nacitajOkresy(); //sequenceTable
-		bool nacitajVzdelanie();//sequenceTable
-		bool nacitajVek();//sequenceTable
-		*/
-
-LinkedList<LinkedList<std::string>*>* Reader::nacitajObce(std::string fileName)
+	void Reader::nacitajData()
 	{
-		//structures::DoubleLinkedList<LinkedList<std::string>*>* nacitajObce(std::string nazovSuboru) {
+		//zoznamKrajov_ = nacitajKraje("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\kraje.csv");
+		//zoznamObci_ = nacitajObce("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\obce.csv");
+		//zoznamOkresov_ = nacitajOkresy("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\okresy.csv");
+		tabulkaVek_ = nacitajVek("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vek.csv");
+		//tabulkaVzdelanie_ = nacitajVzdelanie("C:\\Users\\timka\\source\\repos\\SemestralnaPracaAus1_FuntikovaTimea\\data\\vzdelanie.csv");
+		/* nacitat vsetko do sequence table*/
 
-		std::vector<std::vector<std::string>> content;
+
+		//TODO: uvolnit pamat na spravnom mieste v programe
+		//spravovavat v programe a po ukonceni zavolat totok:
+		uvolniPamat(); //zatial len pre kraje -->aj gettre ak budem uvolnovat pamat v inej triede
+	}
+
+	/// <summary>
+	/// zavolat inde nez v reader.cpp
+	/// </summary>
+	void Reader::uvolniPamat()
+	{
+		//delete zoznamKrajov_;
+		//delete zoznamObci_;
+		//delete zoznamOkresov_;
+	
+		delete tabulkaVek_;
+		//delete tabulkaVzdelanie_;
+		std::cout << "__________________________" << std::endl;
+		std::cout << "Pamat sa uvolnila uspesne." << std::endl;
+	}
+
+	/*toto zavolat az po ncitani dat --> resp main - zavola sa reader -> hned sa nacitaju data -> getery
+	by mali fungovat spravne --> dat prec funkciu uvoli pamat ale potom v spracovavani programu*/
+	LinkedList<LinkedList<std::string>*>* Reader::getZoznamKrajov() { return zoznamKrajov_; }
+	SortedSequenceTable<std::string, Vek*>* Reader::getTabulkaVek() { return tabulkaVek_; }
+	SortedSequenceTable<std::string, Vzdelanie*>* Reader::getTabulkaVzdelanie() { return tabulkaVzdelanie_; }
+	LinkedList<LinkedList<std::string>*>* Reader::getZoznamKObci() { return zoznamObci_; }
+	LinkedList<LinkedList<std::string>*>* Reader::getZoznamKOkresov() { return zoznamOkresov_; }
+
+	void Reader::pripravNaCitanie(std::string fileName)
+	{
+		content_;
 		std::vector<std::string> row;
 		std::string line, word;
-
 		std::fstream file(fileName, std::ios::in);
+
 		if (file.is_open())
 		{
 			bool firstTime = true;
@@ -167,74 +57,360 @@ LinkedList<LinkedList<std::string>*>* Reader::nacitajObce(std::string fileName)
 					continue;
 				}
 				row.clear();
-
 				std::stringstream str(line);
-
 				while (getline(str, word, ','))
 					row.push_back(word);
-				content.push_back(row);
+				content_.push_back(row);
 			}
 		}
-		else {
-			std::cout << "Could not open the file\n";
-		}
-
-		LinkedList<std::string>* contentWords = new LinkedList<std::string>();
-		LinkedList<LinkedList<std::string>*>* vysledok = new LinkedList<LinkedList<std::string>*>();
-
-		// nacitanie vsetkych udajov pricom sa do uvahy beru ;
-		for (int i = 0; i < content.size(); i++)
+		else
 		{
-			std::string riadok = "";
-			for (int j = 0; j < content[i].size(); j++)
+			std::cout << "File is opened or corrupted. Close the file an re-run the app.";
+		}
+	}
+	LinkedList<LinkedList<std::string>*>* Reader::nacitajKraje(std::string fileName)
+	{
+		pripravNaCitanie(fileName);
+		texty_ = new LinkedList<std::string>();
+		LinkedList<LinkedList<std::string>*>* zoznamKraje = new LinkedList<LinkedList<std::string>*>();
+			for (int i = 0; i < content_.size(); i++)
 			{
-				riadok += content[i][j];
+				for (int j = 0; j < content_[i].size(); j++)
+				{
+					riadok_+= content_[i][j];
+				}
+				if (riadok_ == ";;;;;") {
+					break;
+				}
+				riadok_ += ";" ;
+				texty_->add(riadok_);
 			}
-			if (riadok == ";;;;;") {
+			for (std::string item : *texty_) 
+			{
+				int i = 0;
+				//preskocim az na F stpec kde su prve potrebne data:
+				//[0]A, [1]B, [2]C, [3]D, 4[E] [5]F
+				for (int i = 0; i < 5; i++)
+				{
+					while (item.at(i) != ';')
+					{
+						i++;
+					}
+					i++;
+				}
+				i = i + 5; //nechcem prvych 5 znakov 
+				while (item.at(i) != ';') 
+				{
+					kod_ += item.at(i);
+					i++;
+				}
+				i++;
+				LinkedList<std::string>* zoznam = new LinkedList<std::string>();
+				zoznam->add(nazov_);
+				zoznam->add(kod_);
+				zoznamKraje->add(zoznam);
+
+				LinkedList<std::string>* itemsToDel = new LinkedList<std::string>();
+				for (std::string item : *zoznam) {
+					//std::cout << item << std::endl;
+					itemsToDel->add(item);
+				}
+				delete itemsToDel;
+				delete zoznam;
+			}
+			delete texty_;
+			std::cout << "Kraje sa nacitali uspesne." << std::endl;
+			nazov_ = "";
+			kod_ = "";
+			return zoznamKraje;
+		}
+	LinkedList<LinkedList<std::string>*>* Reader::nacitajObce(std::string fileName)
+	{
+		pripravNaCitanie(fileName);
+		texty_ = new LinkedList<std::string>();
+		LinkedList<LinkedList<std::string>*>* zoznamObci = new LinkedList<LinkedList<std::string>*>();
+		for (int i = 0; i < content_.size(); i++)
+		{
+			for (int j = 0; j < content_[i].size(); j++)
+			{
+				riadok_ += content_[i][j];
+			}
+			if (riadok_ == ";;;;;") {
 				break;
 			}
-			contentWords->add(riadok);
+			texty_->add(riadok_);
 		}
-
-
-		for (std::string item : *contentWords) {
-			std::string kodUJ = "";
-			std::string nazovUJ = "";
+		for (std::string item : *texty_) 
+		{
 			int i = 0;
-
-			//chcem len kod a nazov obce, takze preskocim prvu informaciu a ponecham si len dve nasledujuce:
+			//chcem len kod a nazov obce - skip 1. stplca a nacitam len 2 a 3:
 			while (item.at(i) != ';')
 			{
+				i++;
+			}
+			i++;
+			while (item.at(i) != ';')
+			{
+				kod_ += item.at(i);
 				i++;
 			}
 			i++;
 
 			while (item.at(i) != ';')
 			{
-				kodUJ += item.at(i);
-				i++;
-			}
-			i++;
-
-			while (item.at(i) != ';')
-			{
-				nazovUJ += item.at(i);
+				nazov_ += item.at(i);
 				i++;
 			}
 
 			LinkedList<std::string>* zoznam = new LinkedList<std::string>();
-			zoznam->add(nazovUJ);
-			zoznam->add(kodUJ);
-			vysledok->add(zoznam);
+			zoznam->add(nazov_);
+			zoznam->add(kod_);
+			zoznamObci->add(zoznam);
 
+			LinkedList<std::string>* itemsToDel = new LinkedList<std::string>();
 			for (std::string item : *zoznam) {
-				std::cout << item << std::endl;
+				//std::cout << item << std::endl;
+				itemsToDel->add(item);
 			}
+			delete itemsToDel;
 			delete zoznam;
-
 		}
-		delete contentWords;
-		
-		return vysledok;
+		delete texty_;
+		std::cout << "Obce sa nacitali uspesne." << std::endl;
+		nazov_ = "";
+		kod_ = "";
+		return zoznamObci;
 	}
+	LinkedList<LinkedList<std::string>*>* Reader::nacitajOkresy(std::string fileName) 
+	{
+		pripravNaCitanie(fileName);
+		texty_ = new LinkedList<std::string>();
+
+		LinkedList<LinkedList<std::string>*>* zoznamOkresy = new LinkedList<LinkedList<std::string>*>();
+		for (int i = 0; i < content_.size(); i++)
+		{
+			for (int j = 0; j < content_[i].size(); j++)
+			{
+				riadok_ += content_[i][j];
+			}
+			if (riadok_ == ";;;;;")
+			{
+				break;
+			}
+			texty_->add(riadok_);
+		}
+		for (std::string item : *texty_) 
+		{
+			int i = 0;
+			while (item.at(i) != ';') 
+			{
+				i++;
+			}
+			i++;
+			while (item.at(i) != ';') 
+			{
+				kod_ += item.at(i);
+				i++;
+			}
+			i++;
+			while (item.at(i) != ';') 
+			{
+				nazov_ += item.at(i);
+				i++;
+			}
+			LinkedList<std::string>* zoznam = new LinkedList<std::string>();
+			zoznam->add(nazov_);
+			zoznam->add(kod_);
+			zoznamOkresy->add(zoznam);
+			LinkedList<std::string>* itemsToDel = new LinkedList<std::string>();
+			for (std::string item : *zoznam) 
+			{
+				//std::cout << item << std::endl;
+				itemsToDel->add(item);
+			}
+			delete itemsToDel;
+			delete zoznam;
+		}
+		delete texty_;
+		std::cout << "Okresy sa nacitali uspesne." << std::endl;
+		nazov_ = "";
+		kod_ = "";
+		return zoznamOkresy;  //vratí sa mi smerník na pole smerníkov na stringy ulozene v LL -->priradiť pri nacitavani
+	}
+		
+	//____________________
+	// SEFOVANIE VEKU....
+	//___________________
+
+	/*tu treba stringy ukladat ako pointre -- teda aj texty (obsahy csv musia byt pointre...*/
+
+
+	//PO JEDNOM ROVNO VKLADAT -->REFACT.
+	SortedSequenceTable<std::string, Vek*>* Reader::nacitajVek(std::string fileName) 
+	{
+		pripravNaCitanie(fileName);
+		textySTRPointer_ = new LinkedList<std::string*>();
+
+		SortedSequenceTable<std::string, Vek*>* tabulkaVek = new SortedSequenceTable<std::string, Vek*>();
+		for (int i = 0; i < content_.size(); i++)
+		{
+			riadokPointer_ = new std::string();
+			for (int j = 0; j < content_[i].size(); j++)
+			{
+				*riadokPointer_ += content_[i][j];
+			}
+				*riadokPointer_ += ";"; // pre zistovanie ukoncenia neskor
+				textySTRPointer_->add(riadokPointer_);
+			}
+			int pocitadlo = 0;
+			for (std::string* item : *textySTRPointer_) 
+			{
+				pocitadlo++;
+				if (pocitadlo == 2928)
+				{
+					break;
+				}
+
+				Array<int>* vekMuzi = new Array<int>(101);
+				Array<int>* vekZeny = new Array<int>(101);
+
+				//kod:
+				int i = 0;
+				std::string item2 = *item;
+
+				while (item2.at(i) != ';') {
+					kod_ += item2.at(i);
+					i++;
+				}
+				i++;
+
+				//preskocim nazov
+				while (item2.at(i) != ';') {
+					i++;
+				}
+				i++;
+
+				//muzi:
+				for (int j = 0; j < 101; j++)
+				{
+					std::string vekPocetStr = "";
+					while (item2.at(i) != ';') 
+					{
+						vekPocetStr += item2.at(i);
+						i++;
+					}
+					vekMuzi->at(j) = stoi(vekPocetStr); //funkcia na konverziu string-->int
+					i++;
+				}
+
+				//zeny:
+				for (int j = 0; j < 101; j++)
+				{
+					std::string vekPocetStr = "";
+					while (item2.at(i) != ';') 
+					{
+						vekPocetStr += item2.at(i);
+						i++;
+					}
+					vekZeny->at(j) = stoi(vekPocetStr);
+					i++;
+				}
+
+				Vek* vekVysledok = new Vek();
+				for (int i = 0; i < 2; i++)
+				{
+					vekVysledok->pridajVek(pohlavie_enum::MUZ,i, vekMuzi->at(i));
+					vekVysledok->pridajVek(pohlavie_enum::ZENA,i, vekZeny->at(i));
+				}
+
+				tabulkaVek->insert(kod_, vekVysledok);
+				delete vekMuzi;
+				delete vekZeny;
+			}
+			for (int i = 0; i < textySTRPointer_->size(); i++)
+			{
+				delete textySTRPointer_->at(i);
+			}
+
+			delete textySTRPointer_;
+			nazov_ = "";
+			kod_ = "";
+			delete riadokPointer_;
+			riadokPointer_ = nullptr;
+			textySTRPointer_ = nullptr;
+			return tabulkaVek;
+		}
+
+		//_____________________________________________
+		// SEFOVANIE Vzdelania.... IN PROGRESS
+		//_____________________________________________
+
+		SortedSequenceTable<std::string, Vzdelanie*>*Reader::nacitajVzdelanie(std::string fileName) 
+		{
+			pripravNaCitanie(fileName);
+
+			LinkedList<std::string>* texty = new LinkedList<std::string>;
+			SortedSequenceTable<std::string, Vzdelanie*>* tabulkaVzdelanie = new SortedSequenceTable<std::string, Vzdelanie*>();
+
+
+			// nacitam vsetky texty z csv file
+			for (int i = 0; i < content_.size(); i++)
+			{
+				std::string riadok = "";
+				for (int j = 0; j < content_[i].size(); j++)
+				{
+					riadok += content_[i][j];
+				}
+
+				riadok += ";"; // pre zistovanie ukoncenia neskor
+				texty->add(riadok);
+			}
+
+			for (std::string item : *texty) {
+				std::string kodUJ = "";
+				Array<int>* vzdelanie = new Array<int>(8);
+
+				int i = 0;
+				while (item.at(i) != ';') {
+					kodUJ += item.at(i);
+					i++;
+				}
+				i++;
+
+				while (item.at(i) != ';') {
+					i++;
+				}
+				i++;
+
+				for (int j = 0; j < 8; j++)
+				{
+					std::string vzdelaniePocetStr = "";
+					while (item.at(i) != ';') {
+						vzdelaniePocetStr += item.at(i);
+						i++;
+					}
+					vzdelanie->at(j) = stoi(vzdelaniePocetStr);
+					i++;
+				}
+
+				Vzdelanie* vzdelanieObjekt = new Vzdelanie();
+
+				for (int i = 0; i < vzdelanie->size(); i++)
+				{
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::ZAKLADNE,vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::UCNOVSKE, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::STREDNE, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSSIE, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::VYSOKOSKOLSKE, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::BEZ_VZDELANIA, vzdelanie->at(i));
+					vzdelanieObjekt->priradDoVzdelania(vzdelanie_enum::NEZISTENE, vzdelanie->at(i));
+				}
+
+				tabulkaVzdelanie->insert(kodUJ, vzdelanieObjekt);
+				delete vzdelanie;
+			}
+			delete texty;
+			return tabulkaVzdelanie;
+		}
 }

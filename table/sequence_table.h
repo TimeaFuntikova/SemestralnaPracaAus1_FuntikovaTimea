@@ -115,9 +115,9 @@ namespace structures
 	template<typename K, typename T>
 	inline void SequenceTable<K, T>::insert(const K& key, const T& data)
 	{
-		if (this->containsKey(key))
+		if (containsKey(key))
 		{
-			throw std::logic_error("Duplicate key");
+			throw std::logic_error("SequenceTable<K, T>::insert: Duplicate key!");
 		}
 		TableItem<K, T>* novyItem = new TableItem<K, T>(key, data);
 		list_->add(novyItem);
@@ -128,10 +128,9 @@ namespace structures
 	inline T SequenceTable<K, T>::remove(const K& key)
 	{
 		
-		TableItem<K, T>* delItem = this->findTableItem(key);
+		TableItem<K, T>* delItem = findTableItem(key);
 		if (delItem != nullptr)
 		{
-			
 			list_->tryRemove(delItem);
 			T data = delItem->accessData();
 			delete delItem;
@@ -139,7 +138,7 @@ namespace structures
 		}
 		else
 		{
-			throw std::logic_error("No such key");
+			throw std::logic_error("SequenceTable<K, T>::insert: There's no such key!");
 		}
 	}
 
@@ -162,7 +161,7 @@ namespace structures
 	template<typename K, typename T>
 	inline bool SequenceTable<K, T>::containsKey(const K& key)
 	{
-		return this->findTableItem(key) != nullptr;
+		return findTableItem(key) != nullptr;
 	}
 
 	template<typename K, typename T>

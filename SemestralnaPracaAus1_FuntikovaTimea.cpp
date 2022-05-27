@@ -10,7 +10,8 @@ int main()
 {
 		structures::Reader* reader = new structures::Reader();
 		delete reader;
-	    std::cout << "Ideme." << std::endl;
+		std::cout << "_______" << std::endl;
+	    std::cout << "Koniec." << std::endl;
 		return 0;
 	}
 

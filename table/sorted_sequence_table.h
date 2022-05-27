@@ -5,7 +5,6 @@
 
 namespace structures
 {
-
 	/// <summary> Utriedena sekvencna tabulka. </summary>
 	/// <typeparam name = "K"> Kluc prvkov v tabulke. </typepram>
 	/// <typeparam name = "T"> Typ dat ukladanych v tabulke. </typepram>
@@ -82,10 +81,10 @@ namespace structures
 	{
 		
 		bool found = false;
-		int index = this->indexOfKey(key, 0, this->size(), found);
+		int index = this->indexOfKey(key, 0, SequenceTable<K, T>::size(), found);
 		if (!found)
 		{
-			this->list_->insert(new TableItem<K, T>(key, data), index);
+			SequenceTable<K,T>::list_->insert(new TableItem<K, T>(key, data), index);
 		}
 		else
 		{
@@ -97,20 +96,20 @@ namespace structures
 	inline TableItem<K, T>* SortedSequenceTable<K, T>::findTableItem(const K& key)
 	{
 		bool found;
-		int index = this->indexOfKey(key, 0, this->size(), found);
-		return found ? this->list_->at(index) : nullptr;
+		int index = this->indexOfKey(key, 0, SequenceTable<K, T>::size(), found);
+		return found ? SequenceTable<K, T>::list_->at(index) : nullptr;
 	}
 
 	template<typename K, typename T>
 	inline int SortedSequenceTable<K, T>::indexOfKey(K key, int indexStart, int indexEnd, bool& found)
 	{
-		if (indexStart == this->size())
+		if (indexStart == SequenceTable<K, T>::size())
 		{
 			found = false;
 			return indexStart;
 		}
 		int pol = (indexStart + indexEnd) / 2;
-		K stred = this->list_->at(pol)->getKey();
+		K stred = SequenceTable<K, T>::list_->at(pol)->getKey();
 		
 		if (stred == key)
 		{

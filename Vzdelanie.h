@@ -13,16 +13,13 @@ private:
 	structures::Array<int>* vzdelanieSK_;
 
 public:
-	Vzdelanie() {
-		vzdelanieSK_ = new structures::Array<int>(8);
-	}
+	Vzdelanie() { vzdelanieSK_ = new structures::Array<int>(8);}
 
 	~Vzdelanie() 
 	{
 		this->clearVzdelanie();
 		delete vzdelanieSK_;
 		vzdelanieSK_ = nullptr;
-
 	}
 		void clearVzdelanie() 
 		{
@@ -31,7 +28,6 @@ public:
 				vzdelanieSK_->at(i) = 0;
 			}
 		}
-	
 
 	/*
 	const int& transformujVzdelanieInt() const
@@ -50,17 +46,17 @@ public:
 	//USELESS AF _ THIS SHOULD WORK ANYWAY 
 	*/
 
-	void priradDoVzdelania(vzdelanie_enum vzdel) 
+	void priradDoVzdelania(vzdelanie_enum vzdel, int pocetLudiSDanymVzdelanim) 
 	{
 		switch (vzdel) {
-		case vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA: vzdelanieSK_->at(0) += 1; break;
-		case vzdelanie_enum::ZAKLADNE: vzdelanieSK_->at(1) += 1; break;
-		case vzdelanie_enum::UCNOVSKE: vzdelanieSK_->at(2) += 1; break;
-		case vzdelanie_enum::STREDNE: vzdelanieSK_->at(3) += 1; break;
-		case vzdelanie_enum::VYSSIE: vzdelanieSK_->at(4) += 1; break;
-		case vzdelanie_enum::VYSOKOSKOLSKE: vzdelanieSK_->at(5) += 1; break;
-		case vzdelanie_enum::BEZ_VZDELANIA: vzdelanieSK_->at(6) += 1; break;
-		case vzdelanie_enum::NEZISTENE: vzdelanieSK_->at(7) += 1; break;
+		case vzdelanie_enum::BEZ_UKONCENEHO_VZDELANIA: vzdelanieSK_->at(0) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::ZAKLADNE: vzdelanieSK_->at(1) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::UCNOVSKE: vzdelanieSK_->at(2) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::STREDNE: vzdelanieSK_->at(3) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::VYSSIE: vzdelanieSK_->at(4) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::VYSOKOSKOLSKE: vzdelanieSK_->at(5) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::BEZ_VZDELANIA: vzdelanieSK_->at(6) += pocetLudiSDanymVzdelanim; break;
+		case vzdelanie_enum::NEZISTENE: vzdelanieSK_->at(7) += pocetLudiSDanymVzdelanim; break;
 		}
 	}
 	int getVzdelaniePocet(vzdelanie_enum(vzdel)) //pre konkretnu kategoriu

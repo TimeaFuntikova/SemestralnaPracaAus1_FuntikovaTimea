@@ -4,6 +4,9 @@
 #include "../SemestralnaPracaAus1_FuntikovaTimea/Structure_Iterator.h"
 #include "../SemestralnaPracaAus1_FuntikovaTimea/Array.h"
 
+
+
+
 namespace structures
 {
 	/// <summary> Zoznam implementovany polom. </summary>
@@ -196,7 +199,7 @@ namespace structures
 	template<typename T>
 	inline void ArrayList<T>::add(const T& data)
 	{
-		if (size_ >= array_->size()) // ak sa vycerpa kapacita
+		if (size_ == array_->size()) // ak sa vycerpa kapacita
 		{
 			enlarge();
 		}
@@ -258,7 +261,7 @@ namespace structures
 	template<typename T>
 	inline int ArrayList<T>::getIndexOf(const T& data)
 	{
-		for (unsigned i = 0; i < size_ - 1; i++)
+		for (size_t i = 0; i < size_; i++) //z size_ -1
 		{
 			if (array_->at(i) == data) //vymenene poradie
 			{
@@ -290,7 +293,7 @@ namespace structures
 	inline void ArrayList<T>::enlarge()
 	{
 		Array<T>* novePole = new Array<T>(array_->size() * 2);
-		Array<T>::copy(*array_, 0, *novePole, 0, array_->size());
+		Array<T>::copy(*array_, 0, *novePole, 0, static_cast<int>(size_));
 		delete array_;
 		array_ = novePole;
 	}
